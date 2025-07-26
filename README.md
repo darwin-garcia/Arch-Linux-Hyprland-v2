@@ -7,6 +7,9 @@ Arch Linux Ricing with Hyprland (Basic Settings) for ThinkPad Laptops
 
 ## 🖼 Screenshots
 ![Desktop.](https://raw.githubusercontent.com/darwin-garcia/Arch-Linux-Hyprland-v2/refs/heads/main/Screenshots/Desktop%20Full%20v2.png)
+![Terminal.](https://raw.githubusercontent.com/darwin-garcia/Arch-Linux-Hyprland-v2/refs/heads/main/Screenshots/Desktop%20Terminal.png)
+![Fetch.](https://raw.githubusercontent.com/darwin-garcia/Arch-Linux-Hyprland-v2/refs/heads/main/Screenshots/Fastfetch.png)
+![Lock Screen.](https://raw.githubusercontent.com/darwin-garcia/Arch-Linux-Hyprland-v2/refs/heads/main/Screenshots/Lock%20Screen.png)
 
 ## 📽 Video
 
