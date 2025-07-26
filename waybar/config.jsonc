@@ -1,0 +1,56 @@
+// ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+//
+// ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+// ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+// ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+// ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+// ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+//  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+// 
+// ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+{
+  "include": [
+		"~/.config/waybar/Modules",
+		"~/.config/waybar/Workspaces"
+  ],
+  "layer": "top",
+  "width": 1520 ,
+  "margin-top": 5,
+
+  // ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
+  // ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
+  // ░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
+
+  "modules-left": ["custom/launcher", "hyprland/workspaces","cpu","memory"],
+  // "modules-center": ["hyprland/window"],
+  "modules-right":["network","bluetooth","cava","pulseaudio","backlight","battery","clock","custom/power"],
+
+  // Modules Definition
+  "custom/launcher" : {
+		"tooltip": true,
+		"tooltip-format" : "Start Here :)",
+    	"format" : "󰣇 ",
+    	"on-click": "rofi -show drun",
+    	"on-click-right": "killall rofi"
+  },
+
+  "custom/power":{
+		"tooltip": true,
+		"tooltip-format" : "⏻ Power Options",
+    	"format": "<span color='#f7768e'>⏻</span>",	
+		"menu": "on-click",
+    	"menu-file": "~/.config/waybar/power_menu.xml",
+		"menu-actions": {
+			"shutdown": "poweroff",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate",
+			"logout": "hyprctl dispatch exit"
+		}
+  },
+  "hyprland/language":{
+		"format": "󰌏 {1}",
+		"tooltip" : false
+  }
+
+}

@@ -1,0 +1,224 @@
+// ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+//
+// ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+// ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+// ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+// ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+// ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+//  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+// 
+// ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+{
+  // ░▀█▀░▀█▀░█▀▀░█▄█░█▀▀
+  // ░░█░░░█░░█▀▀░█░█░▀▀█
+  // ░▀▀▀░░▀░░▀▀▀░▀░▀░▀▀▀
+
+    // App Title on Topbar
+    "hyprland/window" : {
+        "max-length": 100,
+        "format" : "{}",
+        "separate-outputs": true,
+        "icon": true
+    },
+
+    // View Music info on Topbar
+   "mpris": {
+        "player" : "audacious",
+        "dynamic-order": ["title", "artist"],
+        "format": "{status_icon} <i>{dynamic}</i>",
+        "status-icons":{
+                "default": "▶" ,
+                "paused": "⏸" 
+        },
+   },
+    // CPU Usage on Taskbar
+    "cpu": {
+            "interval": 15,
+            "format": "<span color='#19fc78'> </span> {} %",
+            "max-length": 10
+    },
+    // Memory Usage on Taskbar
+    "memory": {
+            "tooltip" : true,
+            "tooltip-format" : "  {used} GB of {total} GB" ,
+            "interval": 30,
+            "format": "<span color='#7dcfff'> </span> {}% ",
+            "format-alt": "<span color='#7dcfff'> </span> {}% {used} GB",
+            "max-length": 100
+    },
+    // Hard Drive Usage on Taskbar (root)
+    "disk": {
+            "tooltip" : true,
+            "tooltip-format" : " {path}  {percentage_used}% used.  {used} of {total} " ,
+            "format": "<span color='#d08fff'> </span> {percentage_used}%",
+            "format-alt": "<span color='#d08fff'> </span> {used} ",
+            "interval": 30,
+    },
+    // GPU NVIDIA on Taskbar
+    "custom/nvidia": {
+            "tooltip": true,
+            "tooltip-format" : "󰍹 : ",
+            "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,nounits,noheader | sed 's/\\([0-9]\\+\\), \\([0-9]\\+\\)/\\1% 🌡️\\2°C/g'",
+            "format": "󰍹 {} ",
+            "interval": 2
+    },
+    // Keyboard
+    "keyboard-state": {
+        "capslock" : true,
+        "numlock" : false,
+        "format": "{icon} {name}",
+        "format-icons": {
+            "locked" : "L",
+            "unlocked" : "_"
+        }
+    },
+    // Spectrum Analyzer EQ Audio on Topbar
+    "cava": {
+        //  "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+            "framerate": 180,
+            "autosens": 0,
+            "sensitivity": 20,
+            "bars": 12,
+            "lower_cutoff_freq": 40,
+            "higher_cutoff_freq": 16000,
+            "method": "pulse",
+            "source": "auto",
+            "stereo": false,
+            "reverse": false,
+            "hide_on_silence": true,
+            "sleep_timer": 20,
+            "bar_delimiter": 0,
+            "monstercat": false,
+            "waves": false,
+            "noise_reduction": 0.60,
+            "input_delay": 1,
+            "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+            "actions": {
+                    "on-click-right": "mode"
+            }
+    },
+    // Bluetooth Control
+    "bluetooth": {
+        "format": "<span color='#598bf9'>󰂯 </span>",
+        "format-disabled": "<span color='#fe0000'>󰂲 </span>",
+        "format-connected": " {num_connections}",
+
+        "tooltip": true,
+        "tooltip-format": " {status}",
+        "tooltip-format-connected": "󰌢 {controller_alias}\nHost MAC: {controller_address}\n󰂰 {num_connections} connected.\n——————————————————————————————\n{device_enumerate} ",
+        "tooltip-format-enumerate-connected": ":{device_alias}\nMAC:{device_address}\n",
+        "tooltip-format-enumerate-connected-battery": ": {device_alias}\nMAC: {device_address}\n󰥈 {device_battery_percentage}%",
+        "on-click": "blueman-manager",
+    },
+    // Volume Audio Control
+    "pulseaudio": {
+            "tooltip": true,
+            "tooltip-format" : "  Master Volume: {desc} ({volume}%)",
+            "scroll-step": 5,
+            "interval": 1,
+            "format": "{icon} {volume}%",
+            "format-muted": "<span color='#FF0000'> </span>",
+            "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+            "on-click-right": "pavucontrol",
+            "format-icons": { "default": [
+                "<span color='#ff9100'> </span>",
+                "<span color='#7aa2f7'> </span>", 
+                "<span color='#7aa2f7'> </span>", 
+                "<span color='#7aa2f7'> </span>"
+                ]
+            }
+        },
+    // Network Manager and Watch Wi-Fi and LAN connection
+    "network": {
+            "tooltip": true,
+            "format-wifi": "{icon} ({signalStrength}%)",
+            "format-ethernet": "<span color='#7aa2f7'>󰈁</span> {ipaddr}",
+            "format-disconnected": "<span color='#FF0000'>󰌙 </span>",
+            "interval": 2,
+            "tooltip-format-wifi": "󰢩 Interface: {ifname} \n—————————————————————————\n  {essid} \n󰥛 Signal: {signalStrength} % \n Frequency: {frequency}GHz \n—————————————————————————\n󰶡 {bandwidthDownBytes} - 󰶣 {bandwidthUpBytes}\n—————————————————————————\nIP: {ipaddr} \nSubmask: {netmask} \nGateway: {gwaddr}",
+            "tooltip-format-ethernet": "󰢩 Interface: {ifname} \n󰈁 LAN \n—————————————————————————\n󰶡 {bandwidthDownBytes} - 󰶣 {bandwidthUpBytes}\n—————————————————————————\nIP: {ipaddr} \nSubmask: {netmask} \nGateway: {gwaddr}",
+            "tooltip-format-disconnected": "󰅛 Disconnected.",
+            "on-click": "nm-connection-editor",
+            // "on-click-right": "exec nm-applet"
+            "format-icons":  [
+                "<span color='#ff6262'> </span>",
+                "<span color='#ffe958'> </span>", 
+                "<span color='#9ece6a'> </span>", 
+                "<span color='#7aa2f7'> </span>"
+            ]       
+    },
+    // (Only Laptop) Backlight Control
+    "backlight": {
+            "device": "intel_backlight",
+            "tooltip": true,
+            "tooltip-format" : " Backlight: {0} %",
+            "format": "{1} {0}%",
+            "interval":1,
+            "on-scroll-up": "brightnessctl set +5%",
+            "on-scroll-down": "brightnessctl set 5%-",
+
+            "format-icons": [
+                "<span color='#d99c00'>󰃝 </span>",
+                "<span color='#f7de00'>󰃟 </span>",
+                "<span color='#57ffff'>󰃠 </span>"
+            ]
+    },
+    // (Only Laptop) Battery Status
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip" : true,
+        "tooltip-format" : " {timeTo}\n {power} W\n—————————————————————————\n Current Cycles: {cycles}\n󱈏 Health: {health} %",
+        "format": "{icon}  <span color='#F1F1F1'>{capacity}%</span>",
+        "format-charging": "<span color='#38ff5d'></span> <span color='#F1F1F1'>{capacity}%</span>",
+        "format-plugged": "<span color='#F1F1F1'> {capacity}%</span>",
+        "format-alt": "<span color='#00FFF1'>{time}</span> {icon} <span color='#F1F1F1'> {capacity} %</span>",
+        "format-icons": [
+            "<span color='#f7768e'></span>", 
+            "<span color='#76f7bf'></span>", 
+            "<span color='#76f7bf'></span>", 
+            "<span color='#73fdff'></span>", 
+            "<span color='#73fdff'> </span>"
+            ]
+        },
+
+    // Date and Time on Topbar
+    "clock": {
+        "tooltip": true,
+        "interval": 60,
+        "format": "  {:%I:%M %p}",
+        "format-alt": "󰸗 {:%A %d %B %Y   %I:%M %p} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#45e9ff'><b>{}</b></span>",
+                "days":       "<span color='#f1f1f1'><b>{}</b></span>",
+                "weekdays":   "<span color='#66a8ff'><b>{}</b></span>",
+                "today":      "<span color='#66a8ff'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+            }
+    },
+    "user": {
+        "format":"{user}",
+        "interval": 60,
+        "height" : 24,
+        "width" : 24,
+        "icon": true
+
+    }
+}
+ 
