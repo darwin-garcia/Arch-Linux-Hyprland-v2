@@ -13,7 +13,7 @@ Arch Linux Ricing with Hyprland (Basic Settings) for ThinkPad Laptops
 
 ## 📽 Video
 
-https://github.com/user-attachments/assets/ba38dfcf-a553-4592-a360-a4039296f824
+https://github.com/user-attachments/assets/b4a7a4a3-628c-465a-9f9b-964d6b4e1d70
 
 ## ⚙ My Settings (Mis Configuraciones)
 
