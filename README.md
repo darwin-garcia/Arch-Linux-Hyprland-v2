@@ -12,7 +12,8 @@ Arch Linux Ricing with Hyprland (Basic Settings) for ThinkPad Laptops
 ![Lock Screen.](https://raw.githubusercontent.com/darwin-garcia/Arch-Linux-Hyprland-v2/refs/heads/main/Screenshots/Lock%20Screen.png)
 
 ## 📽 Video
-https://raw.githubusercontent.com/darwin-garcia/darwin-garcia/blob/main/Videos/Arch%20Linux%20Hyprland%20v2%20Bluetooth.mp4
+
+https://github.com/user-attachments/assets/ba38dfcf-a553-4592-a360-a4039296f824
 
 ## ⚙ My Settings (Mis Configuraciones)
 
@@ -25,6 +26,7 @@ Official Repo
 * [OhMyZSH](https://ohmyz.sh/#install): Terminal Shell
 
 Este escritorio fue rediseñado del primer repositorio publicado anteriormente
+
 #### Mas sobre Instalacion de Arch Linux
 👉[Haz clic aqui](https://github.com/darwin-garcia/Arch-Linux-Hyprland/tree/main/Instrucciones) para ver mas instrucciones de instalacion de Arch Linux
 
