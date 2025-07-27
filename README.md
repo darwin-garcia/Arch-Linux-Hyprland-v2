@@ -12,7 +12,7 @@ Arch Linux Ricing with Hyprland (Basic Settings) for ThinkPad Laptops
 ![Lock Screen.](https://raw.githubusercontent.com/darwin-garcia/Arch-Linux-Hyprland-v2/refs/heads/main/Screenshots/Lock%20Screen.png)
 
 ## 📽 Video
-https://user-images.githubusercontent.com/darwin-garcia/darwin-garcia/blob/main/Videos/Arch%20Linux%20Hyprland%20v2%20Bluetooth.mp4
+https://raw.githubusercontent.com/darwin-garcia/darwin-garcia/blob/main/Videos/Arch%20Linux%20Hyprland%20v2%20Bluetooth.mp4
 
 ## ⚙ My Settings (Mis Configuraciones)
 
