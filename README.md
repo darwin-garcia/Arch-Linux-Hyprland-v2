@@ -30,5 +30,12 @@ Este escritorio fue rediseñado del primer repositorio publicado anteriormente
 #### Mas sobre Instalacion de Arch Linux
 👉[Haz clic aqui](https://github.com/darwin-garcia/Arch-Linux-Hyprland/tree/main/Instrucciones) para ver mas instrucciones de instalacion de Arch Linux
 
+### ohMyZSH
+1. Instalar el ZSH: `sudo pacman -S zsh zsh-completions`
+2. Elegir el shell por defecto `chsh -s /bin/zsh`. Luego cierra la sesion y todas las terminales abiertas para que los cambios tengan efecto.
+3. Instalar el [OhMyZSH](https://ohmyz.sh/#install)
+4. Instalar los plugins
+5. Actualizar 
+
 Probado en Julio 2025 👨‍💻 ©MMXXV. Darwin Garcia. 🇨🇴
 
