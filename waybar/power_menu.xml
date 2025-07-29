@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <object class="GtkMenu" id="menu">
+	const username = Gtk.getlogin();
 	<child>
 		<object class="GtkMenuItem" id="suspend">
 			<property name="label">󰤄 Suspend</property>
@@ -35,8 +36,9 @@
 
 	<child>
 		<object class="GtkMenuItem" id="logout">
-			<property name="label">󰍃  Logout</property>
+			<property name="label">󰍃 Logout </property>
 		</object>
 	</child>
+
   </object>
 </interface>

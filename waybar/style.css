@@ -2,7 +2,7 @@
   border: none;
   font-family: "JetbrainsMono Nerd Font";
   font-size: 14px;
-  min-height: 0px;
+  min-height: 0;
 }
 
 window {
@@ -11,6 +11,7 @@ window {
 
 window#waybar {
   background: transparent;
+  border-radius: 1px;
   color: rgba(0,0,0,0);
 }
 
@@ -49,10 +50,6 @@ window#waybar.hidden {
   color: #b5e8e6;
   background: transparent;
 }
-#workspaces button:hover{
-  color:#f1f1f1;
-  transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;
-}
 
 #workspaces button.persistent {
   color: #7aa2f7;
@@ -71,9 +68,23 @@ window#waybar.hidden {
   background: transparent;
   font-size: 2px;
 }
+
+#workspaces button:hover{
+  color:#b9cbff;
+  animation: pulsate 0.1s ease-in-out infinite alternate ;
+  transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;
+}
+
+#workspaces button.active:hover {
+  color:#ffd500;
+  animation: pulsate 0.1s ease-in-out infinite alternate ;
+  transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;
+}
+
 #workspaces button.urgent{
   color:crimson;
   background: transparent;
+  animation: blink 1s infinite ;
 }
 
 #battery {
@@ -109,6 +120,30 @@ window#waybar.hidden {
   to {
     color: #b5e8e0;
   }
+}
+@keyframes glow{
+  from{
+    text-shadow: 0px 0px 5px #fff,
+                 0px 0px 10px #228dff;
+  }
+  to {
+    text-shadow: 0px 0px 5px #fff,
+                 0px 0px 10px #228dff;
+  }
+}
+@keyframes pulsate{
+    from{
+      text-shadow: 0 0 4px #fff,
+                 0 0 11px #fff,
+                 0 0 18px #228dff,
+                 0 0 25px #228dff;
+    }
+    to{
+      text-shadow: 0 0 4px #fff,
+                 0 0 11px #fff,
+                 0 0 18px #228dff,
+                 0 0 25px #228dff;
+    }
 }
 
 #backlight {
@@ -169,6 +204,10 @@ window#waybar.hidden {
   transition: none;
   color: #f1f1f1;
   background: transparent;
+}
+
+#temperature.critical {
+	background-color: #ff0000;
 }
 
 #network {
@@ -241,6 +280,12 @@ window#waybar.hidden {
   transition: none;
   color: #7dcfff;
   background: transparent;
+}
+
+#custom-launcher:hover{
+  color:#ffffff;
+  animation: glow 1s infinite alternate;
+  /*transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;*/
 }
 
 #custom-media {

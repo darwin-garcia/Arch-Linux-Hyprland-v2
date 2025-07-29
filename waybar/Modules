@@ -194,10 +194,10 @@
         "format-plugged": "<span color='#F1F1F1'> {capacity}%</span>",
         "format-alt": "<span color='#00FFF1'>{time}</span> {icon} <span color='#F1F1F1'> {capacity} %</span>",
         "format-icons": [
-            "<span color='#f7768e'></span>", 
-            "<span color='#76f7bf'></span>", 
-            "<span color='#76f7bf'></span>", 
-            "<span color='#73fdff'></span>", 
+            "<span color='#f7768e'> </span>", 
+            "<span color='#76f7bf'> </span>", 
+            "<span color='#76f7bf'> </span>", 
+            "<span color='#73fdff'> </span>", 
             "<span color='#73fdff'> </span>"
             ]
         },
