@@ -34,8 +34,9 @@ Este escritorio fue rediseñado del primer repositorio publicado anteriormente
 1. Instalar el ZSH: `sudo pacman -S zsh zsh-completions`
 2. Elegir el shell por defecto `chsh -s /bin/zsh`. Luego cierra la sesion y todas las terminales abiertas para que los cambios tengan efecto.
 3. Instalar el [OhMyZSH](https://ohmyz.sh/#install)
-4. Instalar los plugins
-5. Actualizar 
+4. Instalar los [plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/plugins) de [OhMyZSH](https://ohmyz.sh/#install). [Mas información](https://catalins.tech/zsh-plugins/).
+5. Actualizar: `omz update`
+6. (opcional) Copia y pega el archivo `.zshrc` de tu usuario `/home/$USER` que se ubica en este repositorio
 
 Probado en Julio 2025 👨‍💻 ©MMXXV. Darwin Garcia. 🇨🇴
 
