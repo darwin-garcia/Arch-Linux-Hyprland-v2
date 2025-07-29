@@ -11,16 +11,16 @@ window {
 
 window#waybar {
   background: transparent;
-  color: #f1f1f1;
-  transition-duration: .5s;
+  color: rgba(0,0,0,0);
 }
 
 window#waybar.hidden {
   opacity: 0.2;
 }
 
-.modules-left, .modules-right {
-  background: #1f282f;
+.modules-left, .modules-right 
+{
+  background: rgba(55, 55, 75, 0.35);
   padding-left: 4px;
   padding-right: 12px;
   border-radius: 24px;
@@ -34,7 +34,7 @@ window#waybar.hidden {
   padding-right: 8px;
   border-radius: 14px;
   transition: none;
-  background: transparent;
+
 }
 
 #workspaces {
@@ -91,7 +91,7 @@ window#waybar.hidden {
 
 #battery.charging,
 #battery.plugged {
-  color: #161320;
+  color: #1d2d1b;
   background-color: transparent;
 }
 
@@ -196,6 +196,18 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
+  /* Margin in Top, Right, Bottom, Left */
+  margin: 6px 0px 6px 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: none;
+  color: #f1f1f1;
+  background: transparent;
+}
+
+#pulseaudio#input {
   /* Margin in Top, Right, Bottom, Left */
   margin: 6px 0px 6px 8px;
   padding-left: 4px;

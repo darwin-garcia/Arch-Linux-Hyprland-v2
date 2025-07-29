@@ -35,7 +35,7 @@
     // CPU Usage on Taskbar
     "cpu": {
             "interval": 15,
-            "format": "<span color='#19fc78'> </span> {} %",
+            "format": "<span color='#19fc78'> </span> {usage} %",
             "max-length": 10
     },
     // Memory Usage on Taskbar
@@ -119,6 +119,7 @@
             "interval": 1,
             "format": "{icon} {volume}%",
             "format-muted": "<span color='#FF0000'> </span>",
+            "max-volume": 100,
             "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
             "on-click-right": "pavucontrol",
             "format-icons": { "default": [
@@ -129,13 +130,27 @@
                 ]
             }
         },
+    "pulseaudio#microphone": {
+        "tooltip": true,
+        "tooltip-format" : " Mic: {volume}% ",
+        "scroll-step": 5,
+        "interval": 1,
+        "format" : "{format-source} {volume}%",
+        "format-source" : " ",
+        "format-source-muted": " ",
+        "max-volume": 100,
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "on-click-right": "pavucontrol",
+    },  
     // Network Manager and Watch Wi-Fi and LAN connection
     "network": {
             "tooltip": true,
             "format-wifi": "{icon} ({signalStrength}%)",
             "format-ethernet": "<span color='#7aa2f7'>󰈁</span> {ipaddr}",
             "format-disconnected": "<span color='#FF0000'>󰌙 </span>",
-            "interval": 2,
+            "interval": 1,
             "tooltip-format-wifi": "󰢩 Interface: {ifname} \n—————————————————————————\n  {essid} \n󰥛 Signal: {signalStrength} % \n Frequency: {frequency}GHz \n—————————————————————————\n󰶡 {bandwidthDownBytes} - 󰶣 {bandwidthUpBytes}\n—————————————————————————\nIP: {ipaddr} \nSubmask: {netmask} \nGateway: {gwaddr}",
             "tooltip-format-ethernet": "󰢩 Interface: {ifname} \n󰈁 LAN \n—————————————————————————\n󰶡 {bandwidthDownBytes} - 󰶣 {bandwidthUpBytes}\n—————————————————————————\nIP: {ipaddr} \nSubmask: {netmask} \nGateway: {gwaddr}",
             "tooltip-format-disconnected": "󰅛 Disconnected.",
@@ -171,9 +186,10 @@
             "warning": 25,
             "critical": 10
         },
+        "interval" : 1,
         "tooltip" : true,
         "tooltip-format" : " {timeTo}\n {power} W\n—————————————————————————\n Current Cycles: {cycles}\n󱈏 Health: {health} %",
-        "format": "{icon}  <span color='#F1F1F1'>{capacity}%</span>",
+        "format": "{icon} <span color='#F1F1F1'>{capacity}%</span>",
         "format-charging": "<span color='#38ff5d'></span> <span color='#F1F1F1'>{capacity}%</span>",
         "format-plugged": "<span color='#F1F1F1'> {capacity}%</span>",
         "format-alt": "<span color='#00FFF1'>{time}</span> {icon} <span color='#F1F1F1'> {capacity} %</span>",
