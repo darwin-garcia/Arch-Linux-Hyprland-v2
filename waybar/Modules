@@ -112,7 +112,7 @@
         "on-click": "blueman-manager",
     },
     // Volume Audio Control
-    "pulseaudio": {
+    "pulseaudio#output": {
             "tooltip": true,
             "tooltip-format" : "  Master Volume: {desc} ({volume}%)",
             "scroll-step": 5,
@@ -121,7 +121,7 @@
             "format-muted": "<span color='#FF0000'> </span>",
             "max-volume": 100,
             "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
-            "on-click-right": "pavucontrol",
+            "on-click-right": "pavucontrol -t 3",
             "format-icons": { 
                 "default": [
                 "<span color='#ff0000'> </span>",
@@ -132,19 +132,18 @@
                 ]
             }
         },
-    "pulseaudio#microphone": {
+    "pulseaudio#input": {
         "tooltip": true,
-        "tooltip-format" : " Mic: {volume}% ",
-        "scroll-step": 5,
+        "tooltip-format" : " {source_desc}, Mic Volume: ({source_volume}%) ",
+        "scroll-step": 2,
         "interval": 1,
-        "format" : "{format-source} {volume}%",
-        "format-source" : " ",
-        "format-source-muted": " ",
-        "max-volume": 100,
+	"format" : "<span color='#9ece6a'>{format_source}</span>",
+        "format-source" : " {volume}%",
+	"format-source-muted": " ",
         "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
-        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
-        "on-click-right": "pavucontrol",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +2%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -2%",
+        "on-click-right": "pavucontrol -t 4",
     },  
     // Network Manager and Watch Wi-Fi and LAN connection
     "network": {

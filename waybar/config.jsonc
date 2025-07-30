@@ -23,7 +23,7 @@
 
   "modules-left": ["custom/launcher", "hyprland/workspaces","cpu","memory"],
   // "modules-center": ["hyprland/window"],
-  "modules-right":["network","bluetooth","cava","pulseaudio","backlight","battery","clock","custom/power"],
+  "modules-right":["network","bluetooth","cava","pulseaudio#output","backlight","battery","clock","custom/power"],
 
   // Modules Definition
   "custom/launcher" : {
