@@ -71,14 +71,14 @@ window#waybar.hidden {
 
 #workspaces button:hover{
   color:#b9cbff;
-  animation: pulsate 0.1s ease-in-out infinite alternate ;
-  transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;
+  animation: glow 0.1s ease-out infinite;
+  /*transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;*/
 }
 
 #workspaces button.active:hover {
   color:#ffd500;
-  animation: pulsate 0.1s ease-in-out infinite alternate ;
-  transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;
+  animation: glow 0.1s ease-out infinite;
+  /*transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;*/
 }
 
 #workspaces button.urgent{
