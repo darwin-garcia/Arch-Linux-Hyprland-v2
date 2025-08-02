@@ -264,12 +264,19 @@ window#waybar.hidden {
   padding-left: 2px;
   padding-right: 2px;
   border-bottom: 2px;
-  transition: 0.3s;
+  transition: 0.2s;
+  font-family: Inconsolata Condensed Light, Iosevka NF Light, InputMono Nerd Font Compressed;
   font-size: 14px;
   font-weight: lighter;
   color: #7aa2f7;
   background: transparent;
 }
+#cava:hover{
+  color:#ffffff;
+  animation: glow 1s infinite alternate;
+  /*transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;*/
+}
+
 
 
 #custom-launcher {
