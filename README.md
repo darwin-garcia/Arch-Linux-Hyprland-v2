@@ -35,9 +35,10 @@ Este escritorio fue rediseñado del primer repositorio publicado anteriormente
 2. Elegir el shell por defecto `chsh -s /bin/zsh` o `chsh -s $(which zsh)`. Luego cierra la sesion y todas las terminales abiertas para que los cambios tengan efecto. Puedes consultar el shell actual: `chsh -l`
 3. Instalar el [OhMyZSH](https://ohmyz.sh/#install)
 4. Instalar los [plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/plugins) de [OhMyZSH](https://ohmyz.sh/#install). [Mas información](https://catalins.tech/zsh-plugins/) o [Más completa](https://travis.media/blog/top-10-oh-my-zsh-plugins-for-productive-developers/). Utilizo los siguientes plugins:
-   * `zsh-autosuggestions`
-   * `zsh-syntax-highlighting` o `zsh-fast-syntax-highlighting`
-   * `colored-man-pages`
+   * `zsh-autosuggestions` => `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+   * `zsh-syntax-highlighting` o `zsh-fast-syntax-highlighting` => `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+   * `zsh-history-substring-search` => `git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search`
+   * `colored-man-pages` => `plugins=(..., colored-man-pages)`
 6. Actualizar: `omz update`
 7. (opcional) Copia y pega el archivo `.zshrc` de tu usuario `/home/$USER` que se ubica en este repositorio
 
