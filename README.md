@@ -30,7 +30,7 @@ Este escritorio fue rediseñado del primer repositorio publicado anteriormente
 #### Mas sobre Instalacion de Arch Linux
 👉[Haz clic aqui](https://github.com/darwin-garcia/Arch-Linux-Hyprland/tree/main/Instrucciones) para ver mas instrucciones de instalacion de Arch Linux
 
-####⚠️ Detalles a tener en cuenta
+#### ⚠️ Detalles a tener en cuenta
 La instalación realizada, responderá mejor en una máquina física. Las máquinas virtuales suelen dar más problemas en Hyprland excepto con la virtualización KVM. Este repositorio esta enfocado en laptops/portatiles para aprovechar todo los componentes configurados.
 
 ### Instalar el AUR
