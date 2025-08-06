@@ -30,6 +30,12 @@ Este escritorio fue rediseñado del primer repositorio publicado anteriormente
 #### Mas sobre Instalacion de Arch Linux
 👉[Haz clic aqui](https://github.com/darwin-garcia/Arch-Linux-Hyprland/tree/main/Instrucciones) para ver mas instrucciones de instalacion de Arch Linux
 
+####⚠️ Detalles a tener en cuenta
+La instalación realizada, responderá mejor en una máquina física. Las máquinas virtuales suelen dar más problemas en Hyprland excepto con la virtualización KVM. Este repositorio esta enfocado en laptops/portatiles para aprovechar todo los componentes configurados.
+
+### Instalar el AUR
+`sudo pacman -Syu && git clone https://aur.archlinux.org/yay-git.git && cd yay-git && makepkg -si`
+
 ### ⚠ ¡OhMyZSH! 😲🤖
 1. Instalar el ZSH: `sudo pacman -S zsh zsh-completions`
 2. Elegir el shell por defecto `chsh -s /bin/zsh` o `chsh -s $(which zsh)`. Luego cierra la sesion y todas las terminales abiertas para que los cambios tengan efecto. Puedes consultar el shell actual: `chsh -l`
