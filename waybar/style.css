@@ -274,10 +274,23 @@ window#waybar.hidden {
 #cava:hover{
   color:#ffffff;
   animation: glow 1s infinite alternate;
-  /*transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.682) ;*/
 }
 
-
+#mpris {
+  /* Margin in Top, Right, Bottom, Left */
+  margin: 6px 0px 6px 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 14px;
+  font-weight: normal;
+  transition: none;
+  color: #f1f1f1;
+  background: transparent;
+}
+#mpris:hover{
+  color:#ffffff;
+  animation: glow 1s infinite alternate;
+}
 
 #custom-launcher {
   font-size: 18px;

@@ -23,10 +23,27 @@
     },
 
     // View Music info on Topbar
-   "mpris": {
-        "player" : "audacious",
+   "mpris": {        
         "dynamic-order": ["title", "artist"],
         "format": "{status_icon} <i>{dynamic}</i>",
+        "on-click":"playerctl play-pause",
+        "on-click-middle":"playerctl previous",
+        "on-scroll-up":"playerctl position 1-",
+        "on-scroll-down":"playerctl position 1+",
+        "tooltip":"true",
+        "tooltip-format": "{player_icon} {player}\n——————————————————————————\n{title}\n{artist}\n{album}\n{status_icon} {position} / {length}",
+        "tooltip-format-stopped" : "{player}. Click to Playback or Pause",
+        "max-length" : 100,
+        "interval": 1,
+        "player-icons" : {
+                "default": " ",
+                "mpv": " ",
+                "vlc": "󰕼 ",
+                "audacious": " ",
+                "rhythmbox" : "󰓃 ",
+                "spotify": " ",
+                "parole": " ",
+        },
         "status-icons":{
                 "default": "▶" ,
                 "paused": "⏸" 
@@ -34,14 +51,16 @@
    },
     // CPU Usage on Taskbar
     "cpu": {
-            "interval": 15,
+            "interval": 10,
+            "max-length": 100,
             "format": "<span color='#19fc78'> </span> {usage} %",
-            "max-length": 10
+            "format-alt": "<span color='#19fc78'> </span> {icon0}{icon1}{icon2}{icon3} {usage} %",
+            "format-icons":[ "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"  ]            
     },
     // Memory Usage on Taskbar
-    "memory": {
+    "memory": {        
             "tooltip" : true,
-            "tooltip-format" : "  {used} GB of {total} GB" ,
+            "tooltip-format" : "  {used} GB of {total} GB \n———————————————————————\n {swapUsed} GB of {swapTotal} GB" ,
             "interval": 30,
             "format": "<span color='#7dcfff'> </span> {}% ",
             "format-alt": "<span color='#7dcfff'> </span> {}% {used} GB",
@@ -78,7 +97,7 @@
         //  "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
             "framerate": 180,
             "autosens": 0,
-            "sensitivity": 20,
+            "sensitivity": 25,
             "bars": 16,
             "lower_cutoff_freq": 40,
             "higher_cutoff_freq": 16000,
@@ -91,11 +110,11 @@
             "bar_delimiter": 0,
             "monstercat": false,
             "waves": false,
-            "noise_reduction": 0.70,
-            "input_delay": 2,
+            "noise_reduction": 0.55,
+            "input_delay": 1,
             "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
             "actions": {
-                    "on-click-right": "mode"
+                "on-click-right": "mode"
             }
     },
     // Bluetooth Control
@@ -103,7 +122,6 @@
         "format": "<span color='#598bf9'>󰂯 </span>",
         "format-disabled": "<span color='#fe0000'>󰂲 </span>",
         "format-connected": " {num_connections}",
-
         "tooltip": true,
         "tooltip-format": " {status}",
         "tooltip-format-connected": "󰌢 {controller_alias}\nHost MAC: {controller_address}\n󰂰 {num_connections} connected.\n——————————————————————————————\n{device_enumerate} ",
