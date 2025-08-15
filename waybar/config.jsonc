@@ -47,10 +47,6 @@
 			"hibernate": "systemctl hibernate",
 			"logout": "hyprctl dispatch exit"
 		}
-  },
-  "hyprland/language":{
-		"format": "󰌏 {1}",
-		"tooltip" : false
-  }
+  } 
 
 }
