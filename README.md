@@ -50,5 +50,13 @@ La instalación realizada, responderá mejor en una máquina física. Las máqui
 6. Actualizar: `omz update`
 7. (opcional) Copia y pega el archivo `.zshrc` de tu usuario `/home/$USER` que se ubica en este repositorio
 
+GUI instalado en mi Arch Linux
+(DM) Desktop Manager
+Cinnamon
+Pantheon
+(WM) Window Manager
+BSPWM
+Hyprland
+
 Probado en Julio 2025 👨‍💻 ©MMXXV. Darwin Garcia. 🇨🇴
 
