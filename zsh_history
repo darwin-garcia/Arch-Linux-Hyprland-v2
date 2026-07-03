@@ -1,0 +1,731 @@
+: 1781749659:0;fastfetch
+: 1781749741:0;echo "${(F)AGNOSTER_PROMPT_SEGMENTS[@]}" | cat -n
+: 1781749924:0;nvim .zshrc
+: 1781750229:0;omz update
+: 1781750308:0;git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+: 1781750337:0;git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+: 1781750478:0;sudo nvim /etc/pam.d/system-local-login\
+\
+
+: 1781750563:0;sudo systemctl edit --full --force fprintd.service
+: 1781750601:0;1sudo systemctl enable fprintd.service
+: 1781750607:0;sudo systemctl enable fprintd.service
+: 1781750648:0;sudo pacman -S fprintd libfprint imagemagick usbutils
+: 1781750665:0;sudo nvim /etc/pam.d/system-local-login\
+\
+
+: 1781750704:0;sudo systemctl enable fprintd.service
+: 1781750725:0;sudo systemctl daemon-reload
+: 1781750728:0;sudo systemctl enable fprintd.service
+: 1781750732:0;sudo systemctl daemon-reload
+: 1781750755:0;sudo nvim /etc/pam.d/system-local-login\
+\
+
+: 1781750859:0;sudo systemctl enable fprintd.service
+: 1781750900:0;lsusb
+: 1781751001:0;mkinitcpio -p linux
+: 1781751013:0;sudo mkinitcpio -p linux
+: 1781751023:0;sudo mkinitcpio -p linux-zen
+: 1781751042:0;reboot
+: 1781751109:0;hypridle
+: 1781751126:0;sudo pacman -S hypridle hyprlock
+: 1781751140:0;hypridle
+: 1781751166:0;reboot
+: 1781751250:0;yay -S otf-apple-fonts
+: 1781751300:0;yay -S apple-fonts\
+
+: 1781751533:0;yay -S apple-fonts --mflags --skipinteg\
+
+: 1781751697:0;neofetch
+: 1781752708:0;awww init
+: 1781752732:0;sudo pacman -S awww
+: 1781752744:0;awww init
+: 1781752752:0;awww --help
+: 1781752759:0;awww
+: 1781753099:0;nvim .zshrc
+: 1781753388:0;awww img /home/dangmoz/Pictures/loki.jpg
+: 1781753405:0;awww img "/home/dangmoz/Pictures/loki.jpg"
+: 1781753426:0;awww img '/home/dangmoz/Pictures/Loki.jpg'
+: 1781753609:0;neofetch
+: 1781753619:0;fastfetch
+: 1781753694:0;bash -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
+: 1781754312:0;findmnt /boot
+: 1781754317:0;findmnt /EFI
+: 1781754373:0;bootctl status
+: 1781754551:0;sudo nvim /etc/kernel/cmdline
+: 1781754678:0;ls /boot/EFI/Linux
+: 1781754829:0;sudo nvim /etc/kernel/cmdline
+: 1781754887:0;sudo mkinitcpio -p linux-zen
+: 1781755216:0;sudo pacman -S dosfstools
+: 1781755245:0;lsblk -f
+: 1781755253:0;sudo fsck.fat -a /dev/sda1
+: 1781755306:0;sudo umount /dev/sda1
+: 1781755309:0;sudo fsck.fat -a /dev/sda1
+: 1781755345:0;sudo dosfsck -a /dev/sda1
+: 1781755366:0;sudo pacman -S exfatprogs439;5u
+: 1781755381:0;sudo pacman -S exfatprogs
+: 1781755388:0;sudo dosfsck -a /dev/sda1
+: 1781755403:0;sudo fsck.exfat /dev/sdb1
+: 1781755408:0;sudo fsck.exfat /dev/sda1
+: 1781755432:0;sudo pacman -S ntfs-3g
+: 1781755464:0;sudo badblocks -sv /dev/sda
+: 1781755530:0;sudo pacman -S testdisk
+: 1781755569:0;sudo ntfsfix /dev/sda1
+: 1781755891:0;sudo pacman -S kvantum
+: 1781756489:0;hyprctl clients
+: 1781756548:0;sudo pacman -S \\
+    qt5ct qt6ct \\
+    kvantum kvantum-qt5 \\
+    breeze breeze-icons
+: 1781756699:0;sudo pacman -S hyprqt6engine
+: 1781756880:0;nwg-look
+: 1781757000:0;sudo pacman -S xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781757025:0;systemctl --user status xdg-desktop-portal.service\
+systemctl --user status xdg-desktop-portal-hyprland.service
+: 1781757085:0;systemctl --user status xdg-desktop-portal.service
+: 1781757244:0;systemctl --user status xdg-desktop-portal*
+: 1781757260:0;systemctl --user restart xdg-desktop-portal.service\
+systemctl --user restart xdg-desktop-portal-hyprland.service
+: 1781757277:0;systemctl --user restart xdg-desktop-portal.service
+: 1781757288:0;journalctl -xe
+: 1781757604:0;sudo pacman -Rs kvantum
+: 1781757640:0;sudo pacman -R kvantum
+: 1781757657:0;yay -Scc
+: 1781757668:0;sudo pacman -R kvantum
+: 1781757696:0;sudo pacman -Scc
+: 1781757710:0;sudo pacman -Syu
+: 1781757734:0;sudo pacman -R kvantum
+: 1781757749:0;sudo pacman -R kvantum-qt5
+: 1781758031:0;sudo pacman -R kvantum
+: 1781758047:0;sudo pacman -Rs chromium
+: 1781758058:0;sudo pacman -S chromium
+: 1781758383:0;sudo pacman -R kwallet kwalletmanager
+: 1781758398:0;sudo pacman -R kwallet
+: 1781758627:0;sudo pacman -R xdg-desktop-portal-kde
+: 1781759444:0;systemctl --user status xdg-desktop-portal-hyprland && systemctl --user status xdg-desktop-portal-gtk
+: 1781759466:0;systemctl --user status xdg-desktop-portal-gtk
+: 1781759655:0;cd .config/hypr/Scripts
+: 1781759670:0;chmod +x *.*
+: 1781759842:0;systemctl --user status xdg-desktop-portal-hyprland && systemctl --user status xdg-desktop-portal-gtk
+: 1781759847:0;systemctl --user status xdg-desktop-portal-gtk
+: 1781759901:0;systemctl --user daemon-reload\
+systemctl --user restart xdg-desktop-portal-gtk
+: 1781759906:0;systemctl --user status xdg-desktop-portal-gtk
+: 1781759920:0;systemctl --user status xdg-desktop-portal-hyprland
+: 1781760127:0;sudo pacman -S fwupd 
+: 1781760214:0;fwupdmgr refresh
+: 1781760297:0;sudo nvim /etc/pam.d/sddm
+: 1781760364:0;fprintd-enroll
+: 1781760476:0;sudo fprintd-enroll -u dangmoz
+: 1781760499:0;sudo fprintd-enroll -U dangmoz
+: 1781760573:0;fprintd-enroll
+: 1781760606:0;sudo systemctl enable fprintd.service
+: 1781760625:0;sudo systemctl enable fprintd.Service
+: 1781760630:0;sudo systemctl enable fprintd.service
+: 1781760664:0;sudo systemctl status fprintd.service
+: 1781760743:0;sudo fprintd-enroll dangmoz
+: 1781761290:0;systemctl --user status xdg-desktop-portal-hyprland
+: 1781761298:0;systemctl --user status xdg-desktop-portal-gtk
+: 1781761484:0;sudo nvim /etc/kernel/cmdline
+: 1781761639:0;poweroff
+: 1781761685:0;impala
+: 1781801021:0;sudo pacman -S nvme-cli gparted 
+: 1781801049:0;fdisk -l
+: 1781801055:0;sudo fdisk -l
+: 1781801136:0;sudo nvme format /dev/sda --sanitize-action=2
+: 1781801169:0;sudo nvme format /dev/sda --force --verbose
+: 1781801208:0;sudo cfdisk /dev/sda
+: 1781801329:0;sudo nvme smart-log /dev/sda
+: 1781801373:0;sudo blkdiscard /dev/sda
+: 1781801394:0;sudo blkdiscard /dev/sda -f
+: 1781801527:0;sudo nvme id-ctrl /dev/sda | grep sanicap
+: 1781801536:0;sudo nvme id-ctrl /dev/sda
+: 1781801613:0;fdisk -l
+: 1781801618:0;sudo fdisk -l
+: 1781801650:0;sudo nvme id-ctrl /dev/sda1
+: 1781801666:0;sudo nvme id-ctrl /dev/sda
+: 1781801688:0;sudo nvme get-feature /dev/sda -f 0x0c
+: 1781801742:0;sudo nvme flush /dev/sda
+: 1781801794:0;sudo nvme list
+: 1781801904:0;sudo fdisk -l
+: 1781801918:0;cfdisk
+: 1781801925:0;sudo cfdisk /dev/sda
+: 1781802135:0;sudo smartctl -a /dev/sda
+: 1781802181:0;sudo nvme smart-log /dev/sda
+: 1781802276:0;sudo dd if=/dev/zero of /dev/sda bs=4M status=progress conv=fdatasync
+: 1781802288:0;sudo dd if=/dev/zero of=/dev/sda bs=4M status=progress conv=fdatasync
+: 1781805485:0;sudo fstrim -v /dev/sda
+: 1781805548:0;sudo fdisk -l
+: 1781805576:0;sudo umount /dev/sda
+: 1781805935:0;sudo systemctl list-timers
+: 1781806063:0;sudo fdisk -l
+: 1781806126:0;sudo fstrim -v
+: 1781806351:0;sudo pacman -S smartmontools
+: 1781806478:0;sudo dd if=/dev/zero of=/dev/sdX bs=1M count=100 status=progress
+: 1781806505:0;sudo dd if=/dev/zero of=/dev/sda bs=1M count=100 status=progress
+: 1781806517:0;sudo fdisk -l
+: 1781806535:0;lsblk
+: 1781806581:0;umount /dev/sda
+: 1781806645:0;sudo fdisk -l
+: 1781806760:0;sudo dd if=/dev/zero of=/dev/sda bs=1M count=100 status=progress
+: 1781806770:0;sudo fdisk -l
+: 1781806934:0;lsblk --discard
+: 1781807008:0;umount /dev/sda
+: 1781807224:0;df -h
+: 1781807408:0;sudo pacman -S tune2fs
+: 1781807446:0;sudo pacman -S e2fsprogs
+: 1781807460:0;tune2fs -V
+: 1781807702:0;sudo fdisk -l
+: 1781807723:0;sudo dd if=/dev/zero of=/dev/sda bs=1M count=10000 status=progress
+: 1781807745:0;sudo fdisk -l
+: 1781807802:0;sudo smartctl -a /dev/sda
+: 1781808198:0;umount /dev/sda
+: 1781808243:0;sudo fdisk -l
+: 1781808257:0;sudo smartctl -a /dev/sda
+: 1781808280:0;sudo dd if=/dev/zero of=/dev/sda bs=1M count=10000 status=progress
+: 1781808494:0;umount /dev/sda
+: 1781808545:0;gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+: 1781808563:0;gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+: 1781808588:0;nwg-look
+: 1781808948:0;systemctl --user restart xdg-desktop-portal.service\
+systemctl --user restart xdg-desktop-portal-hyprland.service
+: 1781808961:0;systemctl --user restart xdg-desktop-portal-hyprland.service
+: 1781809001:0;systemctl --user restart xdg-desktop-portal.service
+: 1781809024:0;sudo pacman -Rs xdg-desktop-portal-hyprland
+: 1781809038:0;hyprctl reload
+: 1781809145:0;gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+: 1781809148:0;nwg-look
+: 1781809264:0;systemctl --user restart xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781809276:0;systemctl --user restart xdg-desktop-portal xdg-desktop-portal-gtk
+: 1781809346:0;journalctl -xe --user -u xdg-desktop-portal.service\
+journalctl -xe --user -u xdg-desktop-portal-gtk.service\
+journalctl -xe --user -u xdg-desktop-portal-hyprland.service
+: 1781809397:0;sudo pacman -Rns xdg-desktop-portal-gnome
+: 1781809421:0;systemctl --user daemon-reload\
+systemctl --user restart xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781809445:0;sudo pacman -S xdg-desktop-portal-hyprland
+: 1781809450:0;systemctl --user daemon-reload\
+systemctl --user restart xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781809500:0;mkdir -p ~/.config/systemd/user/xdg-desktop-portal.service.d\
+cat <<EOF > ~/.config/systemd/user/xdg-desktop-portal.service.d/override.conf\
+[Unit]\
+After=graphical-session.target\
+PartOf=graphical-session.target\
+EOF
+: 1781809514:0;systemctl --user daemon-reload\
+systemctl --user restart xdg-desktop-portal.service
+: 1781809536:0;systemctl --user status xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781809646:0;journalctl --user -u xdg-desktop-portal-hyprland.service -e
+: 1781809700:0;systemctl --user reset-failed\
+systemctl --user daemon-reload\
+\
+killall xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk 2>/dev/null\
+\
+systemctl --user restart xdg-desktop-portal-hyprland.service\
+systemctl --user restart xdg-desktop-portal-gtk.service
+: 1781809777:0;mkdir -p ~/.config/systemd/user/xdg-desktop-portal.service.d\
+cat <<EOF > ~/.config/systemd/user/xdg-desktop-portal.service.d/override.conf\
+[Unit]\
+After=graphical-session.target\
+PartOf=graphical-session.target\
+Requires=graphical-session.target\
+EOF\
+\
+systemctl --user daemon-reload
+: 1781809788:0;sudo pacman -S --needed xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781809876:0;systemctl --user status xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781809974:0;sudo fdisk -l
+: 1781809982:0;sudo dd if=/dev/zero of=/dev/sda bs=1M count=10000 status=progress
+: 1781809995:0;sudo fdisk -l
+: 1781810007:0;sudo smartctl -a /dev/sda
+: 1781810215:0;rm -rf ~/.cache/gtk-3.0 ~/.cache/gtk-4.0 ~/.cache/gnome-text-editor
+: 1781810241:0;nwg-look
+: 1781810322:0;rm -rf ~/.cache/gtk-3.0 ~/.cache/gtk-4.0 ~/.cache/nwg-look\
+rm -rf ~/.local/share/gnome-shell/extensions/*  # por si acaso
+: 1781810339:0;rm -rf ~/.cache/gtk-3.0 ~/.cache/gtk-4.0 ~/.cache/nwg-look
+: 1781810343:0;nwg-look
+: 1781810366:0;rm -rf ~/.cache/gtk-3.0 ~/.cache/gtk-4.0 ~/.cache/nwg-look\
+rm -rf ~/.local/share/gnome-shell/extensions/*  # por si acaso
+: 1781810380:0;umount /dev/sda
+: 1781810452:0;sudo fdisk -l
+: 1781810467:0;sudo dd if=/dev/zero of=/dev/sda bs=1M count=10000 status=progress
+: 1781810538:0;sudo fdisk -l
+: 1781810552:0;umount /dev/sda
+: 1781810584:0;sudo fdisk -l
+: 1781810588:0;sudo dd if=/dev/zero of=/dev/sda bs=1M count=10000 status=progress
+: 1781810615:0;sudo fdisk -l
+: 1781810628:0;umount /dev/sda
+: 1781810712:0;sudo fdisk -l
+: 1781810715:0;sudo dd if=/dev/zero of=/dev/sda bs=1M count=10000 status=progress
+: 1781810734:0;sudo fdisk -l
+: 1781810872:0;umount /dev/sda
+: 1781810898:0;sudo fdisk -l
+: 1781810905:0;sudo dd if=/dev/zero of=/dev/sda bs=1M count=10000 status=progress
+: 1781810919:0;umount /dev/sda
+: 1781811254:0;systemctl --user status xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781811451:0;gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'\
+gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Dark'
+: 1781811454:0;systemctl --user status xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781811607:0;systemctl --user show-environment | grep -E "GTK_THEME|QT_QPA|COLOR_SCHEME|KVANTUM"
+: 1781811695:0;hyprctl reload
+: 1781811700:0;systemctl --user show-environment | grep -E "GTK_THEME|QT_QPA|COLOR_SCHEME|KVANTUM"
+: 1781811704:0;systemctl --user status xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+: 1781811841:0;cat ~/.config/gtk-3.0/settings.ini\
+cat ~/.config/gtk-4.0/settings.ini
+: 1781811886:0;systemctl --user show-environment | grep GTK_THEME
+: 1781812918:0;hyprctl reload
+: 1781813094:0;fastfetch
+: 1781823884:0;nwg-look
+: 1781824060:0;fastfetch
+: 1781832108:0;impala
+: 1781832285:0;iw dev
+: 1781832367:0;cava
+: 1781832737:0;lspci | grep -i network
+: 1781832763:0;pacman -Qs iwd
+: 1781832778:0;systemctl status iwd
+: 1781833656:0;hyprctl reload
+: 1781833740:0;env | grep QT\
+pacman -Qs qt6ct kvantum plasma-workspace\
+cat ~/.config/kdeglobals | grep ColorScheme
+: 1781833799:0;grep -A5 "\[General\]" ~/.config/kdeglobals\
+grep -A10 "\[Colors:View\]" ~/.config/kdeglobals
+: 1781833853:0;kvantummanager
+: 1781833864:0;sudo pacman -S kvantum
+: 1781833942:0;kvantummanager
+: 1781834123:0;qt6ct
+: 1781834339:0;qt5ct
+: 1781834852:0;sudo pacman -S xdg-utils
+: 1781835383:0;cava
+: 1781835962:0;fastfetch
+: 1781835981:0;exit
+: 1781836275:0;update-mime-database ~/.local/share/mime
+: 1781836301:0;echo $DBUS_SESSION_BUS_ADDRESS
+: 1781836371:0;cd Pictures
+: 1781836373:0;ls
+: 1781836383:0;xdg-open AnnaSophia-Robb.jpg
+: 1781836509:0;mkdir -p ~/.local/share/mime\
+update-mime-database ~/.local/share/mime
+: 1781836536:0;cd ..
+: 1781836541:0;mkdir -p ~/.local/share/mime\
+update-mime-database ~/.local/share/mime
+: 1781836551:0;mkdir -p ~/.local/share/mime
+: 1781836561:0;update-mime-database ~/.local/share/mime
+: 1781836625:0;which kioclient   # deber√≠a devolver /usr/bin/kioclient
+: 1781836756:0;cat ~/.config/KDE-mimeapps.list\
+cat ~/.config/mimeapps.list
+: 1781836783:0;cp ~/.config/KDE-mimeapps.list ~/.config/mimeapps.list
+: 1781836941:0;nvim .config/mimeapps.list
+: 1781837452:0;cat ~/.config/KDE-mimeapps.list\
+
+: 1781837639:0;pgrep kdeinit
+: 1781838027:0;# Verificar que los procesos est√ÉÅn activos\
+pgrep -a kdeinit\
+pgrep -a kded
+: 1781838598:0;pacman -Qs breeze
+: 1781838620:0;grep -A10 "\[Colors:View\]" ~/.config/kdeglobals\
+pacman -Qs breeze
+: 1781838669:0;QT_STYLE_OVERRIDE=Breeze dolphin
+: 1781838682:0;QT_STYLE_OVERRIDE="" dolphin
+: 1781838733:0;QT_STYLE_OVERRIDE=Breeze dolphin
+: 1781838742:0;kvantummanager
+: 1781838824:0;QT_STYLE_OVERRIDE=Breeze dolphin
+: 1781839343:0;cava
+: 1781903623:0;killall waybar
+: 1781903626:0;waybar
+: 1781904105:0;notify-send "Prueba de Mako" "¬ÉÅHola! Las notificaciones est√ÉÅn funcionando correctamente."\
+
+: 1781904277:0;waybar
+: 1781904376:0;cd waybar
+: 1781904378:0;cd Scripts
+: 1781904382:0;chmod +x *.*
+: 1781904387:0;waybar
+: 1781904591:0;cava
+: 1781904664:0;waybar
+: 1781904809:0;notify-send "Prueba de Mako" "¬ÉÅHola! Las notificaciones est√ÉÅn funcionando correctamente."\
+
+: 1781905446:0;hyprctl devices | grep -A3 "Keyboard"
+: 1781905800:0;cava
+: 1781906391:0;waybar
+: 1781906616:0;chmod +x *.*
+: 1781906619:0;waybar
+: 1781908579:0;chmod +x *.*
+: 1781908581:0;cd ..
+: 1781908585:0;cd hypr
+: 1781908588:0;cd Scripts
+: 1781908592:0;chmod +x *.*
+: 1781908597:0;wcd ..
+: 1781908601:0;waybar
+: 1781910072:0;killall waybar
+: 1781910074:0;waybar
+: 1781908270:6;sudo pacman -S pacman-contrib
+: 1781910114:0;reboot
+: 1781910211:0;notify-send "Prueba de Mako" "¬ÉÅHola! Las notificaciones est√ÉÅn funcionando correctamente."\
+
+: 1781910418:0;notify-send "Prueba de Mako" "¬ÉÅHola! Las notificaciones est√ÉÅn funcionando correctamente. Soy el ultimo."\
+
+: 1781910947:0;killall waybar
+: 1781910948:0;waybar
+: 1781910978:0;notify-send "Prueba de Mako" "¬ÉÅHola! Las notificaciones est√ÉÅn funcionando correctamente."\
+
+: 1781910999:0;notify-send "Prueba de Mako" "¬ÉÅHola! Las notificaciones est√ÉÅn funcionando correctamente. Soy el ultimo."\
+
+: 1781911059:0;waybar
+: 1781911555:2;neofetch
+: 1781912093:0;killall waybar
+: 1781912096:0;waybar
+: 1781912693:0;fastfetch
+: 1781912698:0;neofetch
+: 1781913255:0;cd waybar
+: 1781913262:0;cd Scripts
+: 1781913264:0;chmod +x *.*
+: 1781913423:0;waybar
+: 1781919747:0;pacman -Rs waybar
+: 1781919753:0;sudo pacman -Rs waybar
+: 1781919785:0;sudo pacman -R waybar
+: 1781919795:0;yay -S waybar-cava
+: 1781920508:0;systemctl status fprintd.service
+: 1781920530:0;fprintd-verify
+: 1781920542:0;cat /etc/pam.d/hyprlock
+: 1781920577:0;sudo nvim /etc/pam.d/hyprlock
+: 1781924033:0;killall waybar
+: 1781924034:0;waybar
+: 1781925531:0;waybar -l trace
+: 1781925732:0;killall waybar
+: 1781925818:0;hyprctl dispatch exit
+: 1781925993:0;sudo pacman -S fftw alsa-lib
+: 1781926035:0;killall waybar
+: 1781926038:0;waybar -l trace
+: 1781927017:0;cd waybar
+: 1781927021:0;cd Scripts
+: 1781927024:0;chmod +x *.*
+: 1781927029:0;waybar -l trace
+: 1781927169:0;reboot
+: 1781927269:0;d waybar
+: 1781927277:0;cd Scripts
+: 1781927286:0;cd waybar
+: 1781927290:0;cd Scripts
+: 1781927294:0;chmod +x *.*
+: 1781927299:0;cd ..
+: 1781927303:0;cd cava
+: 1781927311:0;chmod +x waybar-cava
+: 1781927314:0;killall waybar
+: 1781927323:0;waybar
+: 1781927414:0;yay -Rs waybar-cava
+: 1781927441:0;yay -R waybar-cava
+: 1781927453:0;sudo pacman -S waybar
+: 1781927478:0;hyprctl dispatch exit
+: 1781928185:0;killall waybar
+: 1781928187:0;waybar
+: 1781929169:0;reboot
+: 1781929624:0;killall waybar
+: 1781929627:0;waybar
+: 1781930807:0;cava
+: 1781930944:0;waybar
+: 1781934067:0;hyprctl dispatch exit
+: 1781934349:0;killall waybar
+: 1781934351:0;waybar
+: 1781934616:0;hyprctl reload
+: 1781934678:0;hyprctl dispatch exit
+: 1781935104:0;fastfetch
+: 1781935358:0;sudo pacman -S nodejs npm
+: 1781935505:0;sudo pacman -Scc
+: 1781935516:0;yay -Scc
+: 1781935523:0;sudo pacman -S nodejs npm
+: 1781935538:0;fastfetch
+: 1781936713:0;neofetch
+: 1781936974:0;fastfetch
+: 1781968913:0;killall waybar 
+: 1781968922:0;waybar &
+: 1781972219:0;fastfetch
+: 1781972223:0;clear
+: 1781972225:0;fastfetch
+: 1782008976:0;cava
+: 1782059793:0;sudo pacman -S wpa_supplicant
+: 1782059806:0;sudo pacman -R wpa_supplicant
+: 1782059863:0;cava
+: 1782063301:0;killall waybar 
+: 1782063303:0;waybar &
+: 1782063378:0;killall waybar 
+: 1782063381:0;waybar &
+: 1782063415:0;cd .config/waybar/Scripts
+: 1782063418:0;chmod +x waybar-cava
+: 1782063422:0;ls
+: 1782063426:0;chmod +x waybar-cava.sh
+: 1782063431:0;killall waybar 
+: 1782063434:0;waybar &
+: 1782063613:0;killall waybar 
+: 1782063640:0;reboot
+: 1782063762:0;killall waybar 
+: 1782063766:0;waybar &
+: 1782063859:0;killall waybar 
+: 1782063871:0;waybar &
+: 1782064260:0;killall waybar 
+: 1782064262:0;waybar &
+: 1782064481:0;killall waybar 
+: 1782064693:0;waybar &
+: 1782064838:0;killall waybar 
+: 1782064840:0;pkill waybar && waybar
+: 1782064844:0;waybar &
+: 1782065400:0;glances
+: 1782065149:0;killall waybar 
+: 1782065509:0;reboot
+: 1782065798:0;killall waybar 
+: 1782065800:0;waybar &
+: 1782065856:0;killall waybar 
+: 1782065859:0;waybar &
+: 1782066084:0;killall waybar 
+: 1782066085:0;waybar &
+: 1782066147:0;sudo pacman -S impala bluetui wiremix 
+: 1782066317:0;impala
+: 1782066327:0;bluetui
+: 1782066343:0;wiremix
+: 1782067472:0;killall waybar 
+: 1782067477:0;waybar &
+: 1782068197:0;killall waybar 
+: 1782068199:0;waybar &
+: 1782068308:0;killall waybar 
+: 1782068311:0;waybar &
+: 1782068495:0;impala
+: 1782068553:0;killall waybar 
+: 1782068556:0;waybar &
+: 1782068598:0;killall waybar 
+: 1782068599:0;waybar &
+: 1782068951:0;sudo pacman -S thermald
+: 1782068986:0;sudo systemctl enable --now thermald
+: 1782069052:0;systemctl status tlp
+: 1782069083:0;reboot
+: 1782071025:0;sudo nvim /etc/NetworkManager/NetworkManager.conf
+: 1782071047:0;iwd
+: 1782071156:0;nm-connection-editor
+: 1782071232:0;impala
+: 1782071452:0;iwctl station wlan0 show
+: 1782071461:0;iwctl station wlan0 scan
+: 1782071611:0;nm-applet
+: 1782071658:0;sudo systemctl status wpa_supplicant
+: 1782072136:0;ls
+: 1782072242:0;sudo systemctl status NetworkManager
+: 1782072260:0;ps aux | grep impala
+: 1782072431:0;fastfetch
+: 1782072500:0;sudo pacman -S iwd
+: 1782072550:0;sudo nvim /etc/NetworkManager/NetworkManager.conf
+: 1782072599:0;sudo systemctl stop wpa_supplicant
+: 1782072610:0;sudo systemctl disable wpa_supplicant
+: 1782072623:0;sudo systemctl enable --now iwd
+: 1782072633:0;sudo systemctl restart NetworkManager
+: 1782072719:0;sudo pacman -R wpa_supplicant
+: 1782073070:0;fastfetch
+: 1782073083:0;exit
+: 1782074052:0;curl -fsSL https://raw.githubusercontent.com/bjarneo/cliamp/HEAD/install.sh | sh
+: 1782074062:0;cliamp
+: 1782074088:0;cliamp setup
+: 1782074359:0;iwconfig
+: 1782074415:0;cd /etc/NetworkManager/conf.d
+: 1782074416:0;ls
+: 1782074565:0;cliamp
+: 1782074621:0;find /etc/systemd -type l -exec test -f {} \; -print | awk -F'/' '{ printf ("%-40s | %s\n", $(NF-0), $(NF-1)) }' | sort -f
+: 1782074649:0;sudo journalctl -b
+: 1782075419:0;journalctl -u NetworkManager -f
+: 1782075439:0;sudo dmesg | grep iwlwifi
+: 1782075496:0;lspci -nnk | grep -iA3 net
+: 1782075690:0;glances
+: 1782082484:0;fastfetch
+: 1782082520:0;cava
+: 1782082528:0;unimatrix
+: 1782082539:0;bash-pipes
+: 1782088110:0;sudo systemctl restart NetworkManager
+: 1782088129:0;sudo systemctl enable --now iwd
+: 1782088166:0;sudo dmesg | grep iwlwifi
+: 1782088185:0;sudo systemctl disable wpa_supplicant
+: 1782088206:0;sudo systemctl stop wpa_supplicant
+: 1782088208:0;sudo systemctl enable --now iwd
+: 1782088247:0;sudo nvim /etc/NetworkManager/NetworkManager.conf
+: 1782088262:0;iwconfig
+: 1782088296:0;sudo systemctl restart NetworkManager
+: 1782088631:0;journalctl -u iwd.service -f
+: 1782088645:0;journalctl -u iwd.service -b
+: 1782088666:0;sudo systemctl status NetworkManager
+: 1782088675:0;sudo systemctl status wpa_supplicant
+: 1782088694:0;sudo ls /var/lib/iwd/
+: 1782088923:0;sudo systemctl status NetworkManager
+: 1782088950:0;sudo systemctl status iwd
+: 1782088960:0;sudo systemctl restart iwd
+: 1782089015:0;sudo systemctl status NetworkManager
+: 1782089032:0;sudo systemctl restart NetworkManager
+: 1782089494:0;sudo systemctl status NetworkManager
+: 1782089496:0;sudo systemctl restart NetworkManager
+: 1782089591:0;sudo systemctl restart iwd
+: 1782089593:0;sudo systemctl restart NetworkManager
+: 1782089676:0;sudo systemctl restart iwd
+: 1782089679:0;sudo systemctl restart NetworkManager
+: 1782089727:0;sudo systemctl stop wpa_supplicant
+: 1782089738:0;sudo ls /var/lib/iwd/
+: 1782089776:0;sudo systemctl status NetworkManager
+: 1782089787:0;sudo systemctl status iwd
+: 1782089801:0;sudo systemctl status wpa_supplicant
+: 1782089810:0;sudo pacman -R wpa_supplicant
+: 1782089836:0;sudo dmesg | grep iwlwifi
+: 1782089874:0;iwconfig
+: 1782089896:0;ps aux | grep impala
+: 1782089949:0;sudo systemctl restart NetworkManager
+: 1782090091:0;sudo ls /var/lib/iwd/
+: 1782090136:0;sudo systemctl restart NetworkManager
+: 1782090163:0;sudo systemctl restart iwd
+: 1782090192:0;sudo systemctl restart NetworkManager
+: 1782090193:0;sudo systemctl restart iwd
+: 1782090400:0;sudo nvim /etc/NetworkManager/NetworkManager.conf
+: 1782090426:0;nmtui
+: 1782090569:0;journalctl -u NetworkManager -e
+: 1782090611:0;journalctl -u iwd -e
+: 1782090742:0;sudo systemctl restart NetworkManager
+: 1782090815:0;sudo systemctl restart iwd
+: 1782090818:0;sudo systemctl restart NetworkManager
+: 1782090836:0;sudo ls /var/lib/iwd/
+: 1782091124:0;sudo nvim /etc/iwd/main.conf
+: 1782091281:0;nmcli dev wifi list
+: 1782091917:0;cd Downloads
+: 1782091919:0;ls
+: 1782091924:0;cd ..
+: 1782091930:0;cd .config/rofi
+: 1782091932:0;ls
+: 1782093220:0;cd Scripts
+: 1782093226:0;chmod +x power.sh
+: 1782094384:0;rofi -show drn
+: 1782094388:0;rofi -show drun
+: 1782094400:0;rofi -list keybindings
+: 1782099662:0;swapon -show
+: 1782099669:0;swapon --show
+: 1782099697:0;free -h
+: 1782099713:0;cat /proc/swaps
+: 1782099754:0;cat /sys/block/zram0/mm_stat
+: 1782099767:0;cat /sys/block/zram0/stat
+: 1782163843:0;yay -S hyprshade
+: 1782163898:0;hyprshade toggle blue-light-filter
+: 1782163940:0;yay -R hyprshader
+: 1782163952:0;yay -Rs hyprshader
+: 1782163982:0;yay -Rs hyprshade
+: 1782163999:0;sudo pacman -S wlsunset
+: 1782184651:0;cat /sys/firmware/acpi/platform_profile\
+cat /sys/firmware/acpi/platform_profile_choices
+: 1782184661:0;powerprofilesctl list
+: 1782184769:0;sudo systemctl status power-profiles-daemon
+: 1782184787:0;systemctl status tlp
+: 1782184797:0;systemctl status auto-cpufreq
+: 1782184996:0;ls /sys/class/power_supply/BAT0/
+: 1782189886:0;killall waybar 
+: 1782189888:0;waybar &
+: 1782190000:0;killall waybar 
+: 1782190004:0;waybar &
+: 1782190062:0;killall waybar 
+: 1782190066:0;waybar &
+: 1782190159:0;killall waybar 
+: 1782190161:0;waybar &
+: 1782190296:0;killall waybar 
+: 1782190297:0;waybar &
+: 1782190383:0;killall waybar 
+: 1782190387:0;waybar &
+: 1782190414:0;killall waybar 
+: 1782190470:0;waybar &
+: 1782190498:0;killall waybar 
+: 1782190499:0;waybar &
+: 1782190529:0;killall waybar 
+: 1782190655:0;waybar &
+: 1782238913:0;fastfetch
+: 1782265220:0;cava
+: 1782338692:0;sudo pacman -S slurp jq
+: 1782339656:0;sudo pacman -Syu linux-firmware\
+
+: 1782339898:0;sudo pacman -Syyu \
+
+: 1782345794:0;dmesg | grep -i iwlwifi\
+
+: 1782345803:0;sudo dmesg | grep -i iwlwifi\
+
+: 1782346397:0;sudo pacman -Scc && yay -Scc
+: 1782346412:0;yay -Scc
+: 1782346419:0;sudo pacman -Scc
+: 1782351339:0;cava
+: 1782351594:0;ls
+: 1782351599:0;cd Downloads
+: 1782351600:0;ls
+: 1782351603:0;cd sddm-astronaut-theme
+: 1782351607:0;ls
+: 1782351613:0;cd Backgrounds
+: 1782351614:0;ls
+: 1782351665:0;sudo cp -R Genius.jpg /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds
+: 1782351851:0;cd ..
+: 1782351852:0;ls
+: 1782351864:0;cd Themes
+: 1782351864:0;ls
+: 1782351914:0;sudo cp -R hyprland_kath.conf /usr/share/sddm/themes/sddm-astronaut-theme/Themes
+: 1782352136:0;cd ..
+: 1782352141:0;ls
+: 1782352173:0;cp -R Main.qml /usr/share/sddm/themes/sddm-astronaut-theme
+: 1782352184:0;sudo cp -R Main.qml /usr/share/sddm/themes/sddm-astronaut-theme
+: 1782352651:0;cd /usr/share/sddm/themes/sddm-astronaut-theme
+: 1782352652:0;ls
+: 1782352655:0;cd Components
+: 1782352656:0;ls
+: 1782352679:0;sudo nvim LoginForm.qml
+: 1782353081:0;sudo code
+: 1782353124:0;sudo nvim /usr/share/sddm/themes/sddm-astronaut-theme/Components/LoginForm.qml
+: 1782353530:0;sudo nvim /usr/share/sddm/themes/sddm-astronaut-theme/Components/Input.qml
+: 1782354344:0;cd Downloads
+: 1782354358:0;cd sddm-astronaut-theme/Components
+: 1782354359:0;ls
+: 1782354388:0;sudo cp -R Input.qml /usr/share/sddm/themes/sddm-astronaut-theme/Components
+: 1782354401:0;sudo cp -R LoginForm.qml /usr/share/sddm/themes/sddm-astronaut-theme/Components
+: 1782354462:0;sudo nvim /usr/share/sddm/themes/sddm-astronaut-theme/Components/Input.qml
+: 1782354745:0;cd Downloads/sddm-astronaut-theme
+: 1782354746:0;ls
+: 1782354750:0;cd Components
+: 1782354751:0;ls
+: 1782354812:0;sudo cp -R LoginForm.qml /usr/share/sddm/themes/sddm-astronaut-theme/Components
+: 1782354824:0;sudo cp -R Input.qml /usr/share/sddm/themes/sddm-astronaut-theme/Components
+: 1782400779:0;lspci -v | grep Network
+: 1782400790:0;lsmod | grep iwlwifi
+: 1782400815:0;sudo pacman -Syu iwlwifi-firmware
+: 1782401080:0;sudo modprobe -r iwlwifi
+: 1782401247:0;inxi -E   
+: 1782401252:0;umame -a
+: 1782401256:0;uname -a
+: 1782433967:0;iw reg get
+: 1782434052:0;sudo iw reg set US
+: 1782434368:0;fastfetch
+: 1782435071:0;killall waybar 
+: 1782435074:0;waybar &
+: 1782435246:0;killall waybar 
+: 1782435258:0;waybar &
+: 1782437760:0;cavs
+: 1782437765:0;cava
+: 1782440419:0;reboot
+: 1782687986:0;sudo pacman -S wev
+: 1782688010:0;wev | grep -A2 'sym'
+: 1782689839:0;hyprctl clients | grep -A3 rofi
+: 1782696628:0;killall waybar 
+: 1782696630:0;waybar &
+: 1782696744:0;killall waybar 
+: 1782696751:0;cd waybar/Scripts
+: 1782696751:0;ls
+: 1782696760:0;chmod +x profiles-label.sh
+: 1782696765:0;waybar &
+: 1782696791:0;cd .config/rofi
+: 1782696793:0;ls
+: 1782696797:0;cd Scripts
+: 1782696798:0;ls
+: 1782696804:0;chmod +x profiles.sh
+: 1782698134:0;killall waybar 
+: 1782698140:0;waybar &
+: 1782699391:0;cd..
+: 1782699392:0;cd ..
+: 1782699396:0;sudo pacman -S grim slurp wl-clipboard
+: 1782699488:0;sudo pacman -S swappy
+: 1782699495:0;swappy
+: 1782700211:0;tty-clock -sxc -C 4
+: 1782700844:0;bash-pipes
+: 1782700850:0;unimatrix
+: 1782700857:0;cava
+: 1782702008:0;nvim
+: 1782952837:0;yay -Qm
+: 1782952861:0;sudo pacman -Qm
+: 1782952897:0;sudo pacman -Syu
+: 1782959350:0;fastfetch
