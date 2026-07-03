@@ -1,0 +1,17 @@
+[Added Associations]
+application/pdf=chromium.desktop;gimp.desktop;org.inkscape.Inkscape.desktop;firefox.desktop;
+audio/flac=audacious-3.desktop;audacious.desktop;io.github.celluloid_player.Celluloid.desktop;audacity.desktop;mpv.desktop;firefox.desktop;
+audio/mpeg=audacious-2.desktop;audacious.desktop;audacity.desktop;mpv.desktop;io.github.celluloid_player.Celluloid.desktop;
+image/gif=org.gnome.Loupe.desktop;gimp.desktop;chromium.desktop;
+image/png=org.gnome.Loupe.desktop;firefox.desktop;gimp.desktop;chromium.desktop;
+video/mp4=io.github.celluloid_player.Celluloid.desktop;mpv.desktop;
+video/vnd.avi=io.github.celluloid_player.Celluloid.desktop;mpv.desktop;
+
+[Default Applications]
+application/pdf=chromium.desktop;
+audio/flac=audacious-3.desktop;
+audio/mpeg=audacious-2.desktop;
+image/gif=org.gnome.Loupe.desktop;
+image/png=org.gnome.Loupe.desktop;
+video/mp4=io.github.celluloid_player.Celluloid.desktop;
+video/vnd.avi=io.github.celluloid_player.Celluloid.desktop;

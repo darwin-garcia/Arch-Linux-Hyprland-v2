@@ -1,0 +1,64 @@
+# ────────────────────────────────────────────────────────────
+# Omarchy Custom Theme for Alacritty
+# Generated with Omarchist
+# ────────────────────────────────────────────────────────────
+# general.import = [ "~/.config/omarchy/current/theme/alacritty.toml" ]
+
+[env]
+TERM = "xterm-256color"
+
+[terminal]
+osc52 = "CopyPaste"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono" }
+bold = { family = "JetBrainsMono Nerd Font Mono" }
+italic = { family = "JetBrainsMono Nerd Font Mono" }
+size = 9
+
+[window]
+padding.x = 14
+padding.y = 14
+decorations = "None"
+
+[keyboard]
+bindings = [
+{ key = "Insert", mods = "Shift", action = "Paste" },
+{ key = "Insert", mods = "Control", action = "Copy" },
+{ key = "Return", mods = "Shift", chars = "\u001B\r" }
+]
+
+# Color Theme 
+
+[colors]
+[colors.primary]
+background = "#161616"
+foreground = "#f2f4f8"
+
+[colors.cursor]
+text = "#161616"
+cursor = "#f2f4f8"
+
+[colors.selection]
+text = "#161616"
+background = "#f2f4f8"
+
+[colors.normal]
+black = "#161616"
+red = "#3ddbd9"
+green = "#33b1ff"
+yellow = "#ee5396"
+blue = "#42be65"
+magenta = "#be95ff"
+cyan = "#ff7eb6"
+white = "#f2f4f8"
+
+[colors.bright]
+black = "#525252"
+red = "#78a9ff"
+green = "#ff7eb6"
+yellow = "#be95ff"
+blue = "#dde1e6"
+magenta = "#ffffff"
+cyan = "#82cfff"
+white = "#08bdba"
