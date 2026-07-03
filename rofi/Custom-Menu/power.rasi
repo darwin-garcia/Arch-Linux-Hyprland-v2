@@ -1,0 +1,144 @@
+/*
+ * rofi theme  - power menu
+ * colors      - Tokyo Night  (matches default.rasi)
+ * script      - ~/.config/rofi/scripts/power.sh
+ *
+ * Launch:
+ *   rofi -show power \
+ *        -modi "power:~/.config/rofi/scripts/power.sh" \
+ *        -theme ~/.config/rofi/power.rasi
+ *
+ * Hyprland bind (hyprland.conf):
+ *   bind = $mainMod, P, exec, rofi -show power -modi "power:~/.config/rofi/scripts/power.sh" -theme ~/.config/rofi/power.rasi
+ *
+ * From default.rasi power-button, add to hyprland.conf:
+ *   bind = $mainMod SHIFT, P, exec, rofi -show power -modi "power:~/.config/rofi/scripts/power.sh" -theme ~/.config/rofi/power.rasi
+ */
+
+configuration {
+    modi:        "power:~/.config/rofi/Scripts/power.sh";
+    font:        "JetBrainsMono Nerd Font 12";
+    show-icons:  false;
+}
+
+/* ── Palette — identical to default.rasi ─────────────────── */
+* {
+    bg0:    #1a1b26;
+    bg1:    #24283b;
+    bg2:    #292e42;
+    blue0:  #3d59a1;
+    blue1:  #7aa2f7;
+    blue2:  #2ac3de;
+    fg0:    #c0caf5;
+    fg1:    #a9b1d6;
+    fg2:    #565f89;
+    red:    #f7768e;
+    red0:   #5a1e2a;   /* dark red fill for selected destructive item */
+    red1:   #c0526a;   /* mid red for selected border                 */
+    orange: #ff9e64;
+    green:  #9ece6a;
+
+    background-color: transparent;
+    text-color:       @fg0;
+}
+
+/* ── Window — outer ring en rojo (distingue del launcher) ─── */
+window {
+    width:            380px;
+    background-color: #1a1b26A6;
+    border:           2px;
+    border-color:     @red;          /* outer ring: rojo en lugar de cyan */
+    border-radius:    18px;
+    padding:          3px;
+    location:         center;
+    anchor:           center;
+}
+
+/* ── Main box — inner ring ────────────────────────────────── */
+mainbox {
+    children:         [ listview ];
+    padding:          1.8em;
+    background-color: transparent;
+    border:           1px;
+    border-color:     @red1;         /* inner ring: rojo suave */
+    border-radius:    15px;
+    spacing:          1em;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+header {
+    str:              "⏻  Power Menu";
+    expand:           true;
+    background-color: transparent;
+    text-color:       @red;
+    font:             "JetBrainsMono Nerd Font Bold 13";
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+    padding:          0 0 0.4em 0;
+    border:           0px 0px 1px 0px;
+    border-color:     #f7768e33;
+}
+
+/* ── List view — una columna vertical ────────────────────── */
+listview {
+    lines:            5;
+    columns:          1;
+    cycle:            false;
+    spacing:          0.4em;
+    background-color: transparent;
+    scrollbar:        false;
+    border:           0px;
+    fixed-height:     false;
+}
+
+/* ── Items ────────────────────────────────────────────────── */
+element {
+    orientation:      horizontal;
+    padding:          0.65em 1.2em;
+    border-radius:    10px;
+    background-color: #24283b55;
+    cursor:           pointer;
+    text-color:       @fg1;
+    border:           1px;
+    border-color:     transparent;
+    spacing:          0.8em;
+}
+
+/*
+ * Shutdown (índice 0) y Reboot (índice 1) son acciones destructivas.
+ * Se marcan con `element active` — actívalos en el script con
+ * el prefijo  \0active\x1ftrue  si quieres diferenciarlos visualmente.
+ * Por ahora el estado selected usa rojo para todos los ítems.
+ */
+element selected {
+    background-color: @red0;         /* rojo oscuro al seleccionar */
+    border:           1px;
+    border-color:     @red1;
+    border-radius:    10px;
+    text-color:       @red;          /* texto rojo brillante */
+}
+
+/* Hover se convierte en selected via -hover-select en el launcher */
+element active {
+    background-color: #ff9e6415;
+    border-color:     #ff9e6444;
+    text-color:       @orange;
+}
+
+element active selected {
+    background-color: #ff9e6430;
+    border-color:     @orange;
+    text-color:       @orange;
+}
+
+element-text {
+    horizontal-align: 0;             /* texto alineado a la izquierda */
+    vertical-align:   0.5;
+    background-color: transparent;
+    text-color:       inherit;
+    cursor:           pointer;
+    font:             "JetBrainsMono Nerd Font 12";
+}
+
+/* ── Cursor helpers ───────────────────────────────────────── */
+listview, element { cursor: pointer; }

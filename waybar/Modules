@@ -1,0 +1,269 @@
+// ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+//
+// ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+// ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+// ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+// ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+// ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+//  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+// 
+// ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+
+{
+  // ░▀█▀░▀█▀░█▀▀░█▄█░█▀▀
+  // ░░█░░░█░░█▀▀░█░█░▀▀█
+  // ░▀▀▀░░▀░░▀▀▀░▀░▀░▀▀▀
+
+    // App Title on Topbar
+
+    "hyprland/window" : {
+        "format" : "{title}",
+        "max-length": 44,
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 16,
+    },
+
+    // View Music info on Topbar
+   "mpris": {        
+        "dynamic-order": ["title", "artist"],
+        "format": "{status_icon} <i>{dynamic}</i>",
+        "on-click":"playerctl play-pause",
+        "on-click-middle":"playerctl previous",
+        "on-scroll-up":"playerctl position 1-",
+        "on-scroll-down":"playerctl position 1+",
+        "tooltip":"true",
+        "tooltip-format": "{player_icon} {player}\n——————————————————————————\n{title}\n{artist}\n{album}\n{status_icon} {position} / {length}",
+        "tooltip-format-stopped" : "{player}. Click to Playback or Pause",
+        "max-length" : 60,
+        "interval": 1,
+        "player-icons" : {
+            "default": " ",
+            "mpv": " ",
+            "vlc": "󰕼 ",
+            "audacious": " ",
+            "rhythmbox" : "󰓃 ",
+            "spotify": " ",
+            "parole": " ",
+            "celluloid": " ",
+            "chromium": " "
+        },
+        "status-icons":{
+            "default": "▶" ,
+            "paused": "⏸" 
+        },
+   },
+   /* ──  CPU ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+    // CPU Usage on Taskbar
+    "cpu": {
+        "interval": 5,
+        "max-length": 100,
+        "format": "<span color='#19fc78'> </span>",
+        "format-alt": "<span color='#19fc78'> </span> {usage} %",
+        "on-click-right": "kitty -e glances"           
+    },
+    /* ──  MEMORY ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+    // Memory Usage on Taskbar
+    "memory": {        
+        "tooltip" : true,
+        "tooltip-format" : "  {used} GB of {total} GB \n———————————————————————\n {swapUsed} GB of {swapTotal} GB" ,
+        "interval": 3,
+        "format": "<span color='#7dcfff'> </span>",
+        "format-alt": "<span color='#7dcfff'> </span> {}%",
+        "max-length": 100,
+        "states":{
+            "good":0,
+            "okay":60,
+            "high":90
+        }
+    },
+    /* ──  DISK ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+    // Hard Drive Usage on Taskbar (root)
+    "disk": {
+        "tooltip" : true,
+        "tooltip-format" : " {path}  {percentage_used}% used.  {used} of {total} " ,
+        "format": "<span color='#d08fff'> </span>",
+        "format-alt": "<span color='#d08fff'> </span> {used} ",
+        "interval": 30,
+    },
+    // Keyboard
+    "keyboard-state": {
+        "capslock" : true,
+        "numlock" : false,
+        "format": "{icon} {name}",
+        "format-icons": {
+            "locked" : "L",
+            "unlocked" : "_"
+        }
+    },
+    /* ── CAVA EQ Graphics (Spectrum Analyzer EQ Audio on Topbar) ───────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+    "cava": {
+        "framerate": 120,
+        "autosens": 1,
+        "sensitivity": 20,
+        "bars": 12,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "hide_on_silence": true,
+        "sleep_timer": 5,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": true,
+        "noise_reduction": 0.75,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+            "on-click-right": "mode"
+        }
+    },
+    /* ──  Bluetooth Control (blueman, bluetoothctl) ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+    "bluetooth": {
+        "format": "<span color='#598bf9'>󰂯 </span>",
+        "format-disabled": "<span color='#fe0000'>󰂲 </span>",
+        "format-connected": " {num_connections}",
+        "tooltip": true,
+        "tooltip-format": " {status}",
+        "tooltip-format-connected": "󰌢 {controller_alias}\nHost MAC: {controller_address}\n󰂰 {num_connections} connected.\n——————————————————————————————\n{device_enumerate} ",
+        "tooltip-format-enumerate-connected": ":{device_alias}\nMAC:{device_address}\n",
+        "tooltip-format-enumerate-connected-battery": ": {device_alias}\nMAC: {device_address}\n󰥈 {device_battery_percentage}%",
+        "on-click": "kitty --class wiremix-float -e bluetui",
+    },
+    /* ──   PULSEAUDIO Module  (Volume Audio Control) ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+    "pulseaudio#output": {
+        "tooltip": true,
+        "tooltip-format" : "  {volume}%: {desc} ",
+        "scroll-step": 5,
+        "interval": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "<span color='#FF0000'> </span>",
+        "max-volume": 100,
+        "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "kitty --class wiremix-float -e wiremix --tab output",
+        "format-icons": { 
+            "default": [
+                "<span color='#ff0000'> </span>",
+                "<span color='#ff9100'> </span>",
+                "<span color='#7aa2f7'> </span>", 
+                "<span color='#7aa2f7'> </span>", 
+                "<span color='#7aa2f7'> </span>"
+                ]
+            }
+        },
+    "pulseaudio#input": {
+        "tooltip": true,
+        "tooltip-format" : " {source_volume}% : {source_desc} ",
+        "scroll-step": 5,
+        "interval": 5,
+	    "format" : "<span color='#e07389'>{format_source}</span>",
+        "format-source" : " {volume}%",
+	    "format-source-muted": " ",
+        "max-volume": 100,
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5% && [ $(pactl get-source-volume @DEFAULT_SOURCE@ | grep -Po '[0-9]+(?=%)' | head -n1) -gt 100 ] && pactl set-source-volume @DEFAULT_SOURCE@ 100%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "on-click-right": "kitty --class wiremix-float -e wiremix --tab input",
+    },  
+    /* ── 󰢩 NETWORK Module (nmcli) ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+    // Network Manager and Watch Wi-Fi and LAN connection
+    "network": {
+        "tooltip": true,
+        "format-wifi": "{icon} {essid} ({signalStrength}%)",
+        "format-ethernet": "<span color='#7aa2f7'>󰈁</span> {ipaddr}",
+        "format-disconnected": "<span color='#FF0000'>󰌙 </span>",
+        "interval": 3,
+        "tooltip-format-wifi": "󰢩 Interface: {ifname} \n—————————————————————————\n  {essid} \n󰥛 Signal: {signalStrength} % \n Frequency: {frequency}GHz \n—————————————————————————\n󰶡 {bandwidthDownBytes} - 󰶣 {bandwidthUpBytes}\n—————————————————————————\nIP: {ipaddr} \nSubmask: {netmask} \nGateway: {gwaddr}",
+        "tooltip-format-ethernet": "󰢩 Interface: {ifname} \n󰈁 LAN \n—————————————————————————\n󰶡 {bandwidthDownBytes} - 󰶣 {bandwidthUpBytes}\n—————————————————————————\nIP: {ipaddr} \nSubmask: {netmask} \nGateway: {gwaddr}",
+        "tooltip-format-disconnected": "󰅛 Disconnected.",
+        "on-click": "kitty --class impala_float -e impala",
+            // "on-click-right": "nm-connection-editor"
+        "format-icons":  [
+            "<span color='#ff6262'> </span>",
+            "<span color='#ffe958'> </span>", 
+            "<span color='#9ece6a'> </span>", 
+            "<span color='#7aa2f7'> </span>"
+        ]       
+    },
+    /* ──  BACKLIGHT (Only Laptop) Backlight Control ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+    "backlight": {
+        "device": "intel_backlight",
+        "tooltip": true,
+        "tooltip-format" : " Backlight: {0} %",
+        "format": "{1} {0}%",
+        "interval":1,
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+
+        "format-icons": [
+            "<span color='#d99c00'>󰃝 </span>",
+            "<span color='#f7de00'>󰃟 </span>",
+            "<span color='#57ffff'>󰃠 </span>"
+        ]
+    },
+    /* ──  BATTERY (Only Laptop) ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */ 
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 25,
+            "critical": 10
+        },
+        "interval" : 5,
+        "tooltip" : true,
+        "tooltip-format" : " {timeTo}\n {power} W\n—————————————————————————\n Current Cycles: {cycles}\n󱈏 Health: {health} %",
+        "format": "{icon} <span color='#F1F1F1'>{capacity}%</span>",
+        "format-charging": "<span color='#38ff5d'></span> <span color='#F1F1F1'>{capacity}%</span>",
+        "format-plugged": "<span color='#F1F1F1'> {capacity}%</span>",
+        "format-alt": "<span color='#00FFF1'>  {time}</span> {icon} <span color='#F1F1F1'>{capacity} %</span>",
+        "format-icons": [
+            "<span color='#f7768e'> </span>", 
+            "<span color='#76f7bf'> </span>", 
+            "<span color='#76f7bf'> </span>", 
+            "<span color='#73fdff'> </span>", 
+            "<span color='#73fdff'> </span>"
+            ]
+        },
+
+    /* ──   CLOCK (Date and Time on Topbar) ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+    "clock": {
+        "tooltip": true,
+        "interval": 1,
+        "format": "  {:%I:%M %p}",
+        "format-alt": "󰸗 {:%A %d %B %Y   %I:%M %p} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#45e9ff'><b>{}</b></span>",
+                "days":       "<span color='#f1f1f1'><b>{}</b></span>",
+                "weekdays":   "<span color='#66a8ff'><b>{}</b></span>",
+                "today":      "<span color='#66a8ff'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    /* ──   KEYBOARD LAYOUT ────────────────────────────────────────────────────── */
+    "hyprland/language":{
+		"format": "󰌏 {1}",
+		"tooltip" : false
+    },
+    "user": {
+        "format":"{user}",
+        "interval": 60,
+        "height" : 24,
+        "width" : 24,
+        "icon": true
+
+    }
+}
+ 

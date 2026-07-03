@@ -1,0 +1,117 @@
+// ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+//
+// ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+// ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+// ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+// ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+// ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+//  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+// 
+// ▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀
+{
+  "include": [
+		"~/.config/waybar/Modules",
+		"~/.config/waybar/Workspaces"
+  ],
+  "layer": "top",
+  "width": "98%",
+  "margin-top": 4,
+
+
+  // ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
+  // ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
+  // ░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
+
+  "modules-left": ["custom/launcher", "hyprland/workspaces", "cpu", "memory", "disk","custom/profiles"],
+  "modules-right":["network","custom/keyboard","bluetooth","pulseaudio#input","pulseaudio#output","backlight","battery","clock","custom/notifications","custom/power"],
+
+  // Modules Definition
+
+  // ── 󰣇 LAUNCHER ─────────
+  "custom/launcher" : {
+		"tooltip": true,
+		"tooltip-format" : "󰣇 Start Here :-)",
+    	"format" : "󰣇 ",
+    	"on-click": "rofi -show drun",
+    	"on-click-right": "killall rofi"
+  },
+ // ──  ⏻ POWER ────────────
+  "custom/power":{
+		"exec": "echo $USER",
+		"interval": "once",
+		"tooltip": true,
+		"tooltip-format" : "⏻ Power Options",
+    	"format": "<span color='#f7768e'>⏻</span>",	
+		"on-click": "rofi -modi power:~/.config/rofi/Scripts/power.sh -show power -theme ~/.config/rofi/Custom-Menu/power.rasi",
+		"menu": "on-click-right",
+    	"menu-file": "~/.config/waybar/Scripts/power_menu.xml",
+		"menu-actions": {
+			"reload": "hyprctl reload",
+			"shutdown": "poweroff",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate",
+			"logout": "hyprctl dispatch exit"
+		}
+  }, 
+  // ── 󰂚 NOTIFICATIONS ─────
+	"custom/notifications": {
+		"exec": "~/.config/waybar/Scripts/notifications.sh",
+		"return-type": "json",
+		"interval": 3,
+		"on-click": "bash -c 'makoctl dismiss -a 2>/dev/null; echo 0 > /tmp/mako_notif_count; pkill -RTMIN+8 waybar'",
+		"signal": 8,
+		"on-click-right": "makoctl restore"
+	},
+	// ──  KEYBOARD LAYOUT ────
+	"custom/keyboard": {
+		"exec": "~/.config/waybar/Scripts/kb-layout.sh",
+		"return-type": "json",
+		"interval": 2,
+		"on-click": "~/.config/waybar/Scripts/kb-layout.sh switch-laptop",
+		"on-click-right": "~/.config/waybar/Scripts/kb-layout.sh switch-external",
+		"tooltip": true
+	},
+	// ── ⚙ CONTROL ───────
+	// "on-click": ""
+	"custom/control": {
+		"format": "⚙",
+		"tooltip": true,
+		"tooltip-format" : "⚙ Settings",
+		"on-click" :  "eww open-many controlcenter"
+	},
+	// ── ⚙ SEARCH ───────
+	"custom/search": {
+		"format": "󰍉",
+		"on-click": "rofi -show drun -theme ~/.config/rofi/Custom-Menu/search.rasi",
+		"tooltip": true,
+		"tooltip-format" : "󰍉 Search..."
+	},
+	// ── ⚙ PROFILES ENERGY (ONLY LAPTOP) ───────
+	"custom/profiles": {
+		"exec": "~/.config/waybar/Scripts/profiles-label.sh",
+		"interval": 30,
+		"format": "{}",
+		"on-click": "rofi -show profiles -modes 'profiles:~/.config/rofi/Scripts/profiles.sh' -theme ~/.config/rofi/Custom-Menu/profiles.rasi",
+		"tooltip": true,
+		"tooltip-format" : "⚙ Energy Profiles."
+	},
+	// ──  UPDATES ─────────
+    "custom/updates": {
+		"exec": "~/.config/waybar/Scripts/update-status.sh",
+		"return-type": "json",
+		"interval": 600,
+		"on-click": "kitty -e bash -c 'sudo pacman -Syu; echo; read -p \"Press Enter to close...\"'",
+		"on-click-right": "pkill -RTMIN+4 waybar"
+	},
+
+	"custom/cava": {
+		"exec": "~/.config/waybar/Scripts/waybar-cava.sh",
+		//"return-type": "json",
+		// "restart-interval": 1,
+		"input-delay": 3,
+		"format": "{}",
+		"tooltip": false
+
+	}
+}

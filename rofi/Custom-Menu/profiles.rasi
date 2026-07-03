@@ -1,0 +1,166 @@
+/*
+ * rofi theme  - power profiles
+ * colors      - Tokyo Night + acento verde (power-profiles-daemon)
+ * script      - ~/.config/rofi/scripts/profiles.sh
+ *
+ * Launch:
+ *   rofi -show profiles \
+ *        -modes "profiles:~/.config/rofi/scripts/profiles.sh" \
+ *        -theme ~/.config/rofi/profiles.rasi
+ *
+ * Hyprland bind (hyprland.conf):
+ *   bind = $mainMod, F2, exec, \
+ *     rofi -show profiles \
+ *          -modes "profiles:~/.config/rofi/scripts/profiles.sh" \
+ *          -theme ~/.config/rofi/profiles.rasi
+ *
+ * Blur (hyprland.conf — hyprlang < 0.55):
+ *   layerrule = blur, rofi
+ *   layerrule = ignorezero, rofi
+ *
+ * Blur (hyprland.lua — Lua ≥ 0.55):
+ *   hl.layer_rule({ match = { namespace = "rofi" }, blur = true, ignore_alpha = 0.5 })
+ */
+
+configuration {
+    modes:        "profiles:~/.config/rofi/Scripts/profiles.sh";
+    font:         "JetBrainsMono Nerd Font 11";
+    show-icons:   false;
+    sidebar-mode: false;
+}
+
+/* ── Palette — idéntica a default.rasi + verde ─────────────── */
+* {
+    bg0:     #1a1b26;
+    bg1:     #24283b;
+    bg2:     #292e42;
+    green0:  #0d2010;   /* fill oscuro para el perfil activo   */
+    green1:  #9ece6a;   /* verde brillante — borde exterior    */
+    green2:  #41a855;   /* verde medio — borde interior        */
+    green3:  #1e4a22;   /* fill subtle para message bar        */
+    blue1:   #7aa2f7;
+    blue2:   #2ac3de;
+    fg0:     #c0caf5;
+    fg1:     #a9b1d6;
+    fg2:     #565f89;
+    red:     #f7768e;
+    orange:  #ff9e64;
+    yellow:  #e0af68;
+
+    background-color: transparent;
+    text-color:       @fg0;
+}
+
+/* ── Window — borde verde ─────────────────────────────────── */
+window {
+    width:            560px;
+    background-color: #1a1b2680;   /* ~50% opacidad — blur visible */
+    border:           2px;
+    border-color:     @green1;
+    border-radius:    18px;
+    padding:          3px;
+    location:         center;
+    anchor:           center;
+}
+
+/* ── Main box — anillo interior ───────────────────────────── */
+mainbox {
+    children:         [ message, listview ];
+    padding:          1.5em;
+    background-color: #1a1b2640;
+    border:           1px;
+    border-color:     @green2;
+    border-radius:    15px;
+    spacing:          1em;
+}
+
+/* ── Status bar (batería / perfil / tiempo) ───────────────── */
+/*
+ * El script llena este widget vía:
+ *   printf '\0message\x1f<pango markup>\n'
+ * Soporta Pango markup completo.
+ */
+message {
+    padding:          0.7em 1em;
+    border-radius:    10px;
+    background-color: @green3;
+    border:           1px;
+    border-color:     #9ece6a33;
+}
+
+/*
+ * `textbox` dentro de message — horizontal-align: 0.5 centra
+ * el contenido del status bar.
+ */
+textbox {
+    text-color:        @fg0;
+    background-color:  transparent;
+    horizontal-align:  0.5;
+    vertical-align:    0.5;
+    font:              "JetBrainsMono Nerd Font 11";
+}
+
+/* ── List view — 3 perfiles, 1 columna ────────────────────── */
+listview {
+    lines:            3;
+    columns:          1;
+    cycle:            true;
+    spacing:          0.4em;
+    background-color: transparent;
+    scrollbar:        false;
+    border:           0px;
+    fixed-height:     false;
+}
+
+/* ── Elemento base ────────────────────────────────────────── */
+element {
+    orientation:      horizontal;
+    padding:          0.8em 1.2em;
+    border-radius:    10px;
+    background-color: #24283b55;
+    cursor:           pointer;
+    text-color:       @fg1;
+    border:           1px;
+    border-color:     transparent;
+    spacing:          0;
+}
+
+/* ── Elemento seleccionado con teclado / ratón ────────────── */
+element selected {
+    background-color: @green0;
+    border:           1px;
+    border-color:     @green1;
+    border-radius:    10px;
+    text-color:       @green1;
+}
+
+/*
+ * Perfil activo actualmente — marcado con \0active\x1f<index>
+ * desde el script. Se muestra diferente al resto pero sin hover.
+ */
+element active {
+    background-color: #0d201044;
+    border:           1px;
+    border-color:     #9ece6a66;
+    text-color:       @green1;
+}
+
+/* Perfil activo Y seleccionado al mismo tiempo */
+element active selected {
+    background-color: @green0;
+    border:           1px;
+    border-color:     @green1;
+    text-color:       @green1;
+}
+
+element-text {
+    horizontal-align:  0;
+    vertical-align:    0.5;
+    background-color:  transparent;
+    text-color:        inherit;
+    cursor:            pointer;
+    font:              "JetBrainsMono Nerd Font 12";
+}
+
+/* ── Cursor helpers ───────────────────────────────────────── */
+listview, element { cursor: pointer; }

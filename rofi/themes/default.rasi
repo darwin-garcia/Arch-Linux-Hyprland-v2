@@ -1,0 +1,265 @@
+/*
+ * rofi themes - default
+ * colors  - Tokyo Night
+ * mode    - dark  |  Hyprland / Wayland
+ *
+ * Modes: 󰀻 Apps (drun)  |  Terminal (run)  |   Files (filebrowser)  |   Power
+ * Switch:  Ctrl+Tab   or  click a tab at the bottom-left
+ * Terminal tip: in "Terminal" mode, Shift+Enter opens command in kitty
+ * Power button: visual shortcut — bind kb-custom-1 in Hyprland to call rofi-power script
+ */
+
+configuration {
+    modi:                "drun,run,filebrowser";
+    display-drun:        "󰀻 Apps";
+    display-run:         " Terminal";
+    display-filebrowser: " Files";
+    drun-display-format: "{name}";
+    font:                "JetBrainsMono Nerd Font 11";
+    show-icons:          true;
+    icon-theme:          "Papirus-Dark";
+    terminal:            "kitty";
+    sidebar-mode:        true;
+
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+}
+
+/* ── Palette ──────────────────────────────────────────────── */
+* {
+    bg0:    #1a1b26;
+    bg1:    #24283b;
+    bg2:    #292e42;
+    blue0:  #3d59a1;
+    blue1:  #7aa2f7;
+    blue2:  #2ac3de;
+    fg0:    #c0caf5;
+    fg1:    #a9b1d6;
+    fg2:    #565f89;
+    red:    #f7768e;
+    green:  #9ece6a;
+
+    background-color: transparent;
+    text-color:       @fg0;
+}
+
+/* ── Window outer ring (#2ac3de) ─────────────────────────── */
+window {
+    width:            820px;
+    background-color: #1a1b26A6;
+    border:           2px;
+    border-color:     @blue2;
+    border-radius:    18px;
+    padding:          3px;
+}
+
+/* ── Main box ─────────────────────────────────────────────── */
+mainbox {
+    children:         [ textbox-header, inputbar, listview, bottom-bar ];
+    padding:          3em;
+    background-color: transparent;
+    border:           1px;
+    border-color:     @blue1;
+    border-radius:    15px;
+    spacing:          1em;
+}
+
+/*
+ * Header — DEBE llamarse "textbox-*" para que rofi lo trate como
+ * textbox (rofi-theme(5): "Any widget name starting with textbox is
+ * a textbox widget, others are box widgets"). "header" a secas no
+ * es un widget fijo de rofi ni empieza con ese prefijo, asi que se
+ * reducia a una box vacia sin texto y ademas nunca estaba en
+ * mainbox.children, por lo que no se dibujaba en absoluto.
+ * height: 80px reserva el espacio fijo pedido, evitando que el
+ * textbox colapse a 1px cuando expand:false (bug conocido de rofi
+ * con textbox en boxes verticales sin altura explicita).
+ */
+textbox-header {
+    content:           "󰣇  Arch Linux  ·  Start Menu";
+    font:              "JetBrainsMono Nerd Font Bold 13";
+    height:            60px;
+    expand:            false;
+    horizontal-align:  0.5;
+    vertical-align:    0.5;
+    border:            0px 0px 1px 0px;    /* separador sutil solo abajo */
+    border-color:      #7aa2f733;
+}
+
+/* ── Input bar ────────────────────────────────────────────── */
+inputbar {
+    children:         [ prompt, entry ];
+    border-radius:    10px;
+    background-color: #24283b88;
+    border:           1px;
+    border-color:     @blue0;
+    padding:          0.15em 0;
+}
+
+prompt {
+    padding:          0.45em 0.7em;
+    background-color: transparent;
+    vertical-align:   0.5;
+}
+
+entry {
+    blink:             false;
+    padding:           0 1.5% 0 0;
+    placeholder:       "Search apps, run commands, browse files...";
+    placeholder-color: @fg2;      /* muted — #565f89, clearly less white */
+    background-color:  transparent;
+    vertical-align:    0.5;
+}
+
+/* ── List view ────────────────────────────────────────────── */
+listview {
+    lines:            4;
+    columns:          5;
+    cycle:            false;
+    spacing:          0.5em;
+    background-color: transparent;
+    scrollbar:        false;
+    border:           0px;
+}
+
+/* ── Element cards ────────────────────────────────────────── */
+element {
+    orientation:      vertical;
+    padding:          0.9em 0.5em;
+    border-radius:    10px;
+    background-color: #24283b55;
+    cursor:           pointer;
+    text-color:       @fg1;
+    border:           1px;
+    border-color:     transparent;
+}
+
+/*
+ * Selected state:
+ *   - solid blue fill (#3d59a1)
+ *   - bright border (#7aa2f7)
+ *   - white label — text-color: inherit propagates to element-text
+ */
+element selected {
+    background-color: @blue0;
+    border:           1px;
+    border-color:     @blue1;
+    border-radius:    10px;
+    text-color:       #ffffff;
+}
+
+/*
+ * background-color: transparent removes the extra coloured box
+ * that was creating the icon shadow artefact.
+ */
+element-icon {
+    horizontal-align:  0.5;
+    background-color:  transparent;
+    size:              48px;
+    cursor:            pointer;
+}
+
+element-text {
+    horizontal-align:  0.5;
+    background-color:  transparent;
+    text-color:        inherit;
+    cursor:            pointer;
+}
+
+/* ── Bottom bar: [Apps|Terminal|Files]  ·  spacer  ·  [Power] ─ */
+/*
+ * bottom-bar is a custom box that holds:
+ *   mode-switcher  — compact, expand:false → stays glued to the left
+ *   bar-spacer     — stretches to fill the gap
+ *   button-power   — special "button" widget styled as a danger button on the right
+ */
+bottom-bar {
+    children:         [ mode-switcher, bar-spacer, button-power ];
+    orientation:      horizontal;
+    spacing:          0.5em;
+    background-color: transparent;
+    expand:           false;
+}
+
+/* Mode-switcher: compact width, does NOT stretch to fill the row */
+mode-switcher {
+    expand:           false;
+    background-color: transparent;
+    spacing:          0.5em;
+    orientation:      horizontal;
+}
+
+/* Inactive mode tab */
+button {
+    padding:          0.5em 1.4em;   /* horizontal padding sizes the button */
+    border-radius:    8px;
+    background-color: #24283b88;
+    text-color:       @fg2;
+    border:           1px;
+    border-color:     #7aa2f722;
+    cursor:           pointer;
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+    font:             "JetBrainsMono Nerd Font 11";
+    expand:           false;         /* each button fits its label */
+}
+
+/* Active mode tab */
+button selected {
+    background-color: @blue0;
+    text-color:       @blue1;
+    border-color:     @blue1;
+    border:           1px;
+}
+
+/* Spacer pushes button-power to the right */
+bar-spacer {
+    expand:           true;
+    background-color: transparent;
+}
+
+/*
+ * Power button — widget especial "button" de rofi.
+ * El nombre DEBE empezar con el prefijo "button"; "power-button" no
+ * calificaba, asi que rofi lo trataba como una simple box sin texto ni clic.
+ *
+ * "action" solo puede simular un keybinding de rofi, NUNCA ejecutar un
+ * comando de shell directamente (limitacion del formato .rasi, no rodeable).
+ * Al pulsar el boton, rofi termina el proceso con codigo de salida 9+N
+ * (kb-custom-1 -> exit code 10; kb-custom-2 -> 11; etc). El WRAPPER que
+ * lanzo rofi (el script bindeado en Hyprland) debe capturar $? y, si
+ * es 10, lanzar el submenu de energia:
+ *
+ *   rofi -show drun ...
+ *   ec=$?
+ *   if [[ $ec -eq 10 ]]; then   # 9 + N para kb-custom-1
+ *       rofi -show power \
+ *            -modes "power:$HOME/.config/rofi/scripts/rofi-power.sh" \
+ *            -theme "$HOME/.config/rofi/custom-power.rasi"
+ *   fi
+ *
+ * Ver rofi-power.sh y custom-power.rasi para el submenu (Shutdown,
+ * Reboot, Lock, Logout, Suspend) con confirmacion visual antes de
+ * ejecutar cualquier accion destructiva.
+ */
+button-power {
+    content:          " Power";
+    expand:           false;
+    padding:          0.5em 1.4em;
+    border-radius:    32px;
+    background-color: #f7768e12;
+    text-color:       @red;
+    border:           1px;
+    border-color:     #f7768e33;
+    cursor:           pointer;
+    vertical-align:   0.5;
+    horizontal-align: 0.5;
+    font:             "JetBrainsMono Nerd Font 11";
+    action:           "kb-custom-1";
+}
+
+/* ── Cursor helpers ───────────────────────────────────────── */
+listview, element, button, button-power { cursor: pointer; }
+entry                     { cursor: text;    }

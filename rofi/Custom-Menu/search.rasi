@@ -1,0 +1,240 @@
+/*
+ * rofi theme  - search
+ * colors      - Tokyo Night  (palette idéntica a default.rasi)
+ * mode        - drun  (búsqueda de aplicaciones, lista vertical)
+ *
+ * Launch:
+ *   rofi -show drun -theme ~/.config/rofi/search.rasi
+ *
+ * Hyprland bind (hyprland.conf):
+ *   bind = $mainMod, S, exec, rofi -show drun -theme ~/.config/rofi/search.rasi
+ *
+ * ─────────────────────────────────────────────────────────────
+ *  BORDE ANIMADO (opcional — ver sección al final del archivo)
+ *  Para el efecto borderangle de Hyprland en esta ventana,
+ *  establece  border: 0px  en `window` y activa las reglas
+ *  windowrulev2 que se documentan abajo.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+configuration {
+    modi:                "drun";
+    display-drun:        "󰀻";
+    drun-display-format: "{name}";
+    font:                "JetBrainsMono Nerd Font 11";
+    show-icons:          true;
+    icon-theme:          "Papirus-Dark";
+    terminal:            "kitty";
+    sidebar-mode:        false;    /* sin barra de modos — es solo search */
+}
+
+/* ── Palette — idéntica a default.rasi ────────────────────── */
+* {
+    bg0:    #1a1b26;
+    bg1:    #24283b;
+    bg2:    #292e42;
+    blue0:  #3d59a1;
+    blue1:  #7aa2f7;
+    blue2:  #2ac3de;
+    fg0:    #c0caf5;
+    fg1:    #a9b1d6;
+    fg2:    #565f89;
+    red:    #f7768e;
+    green:  #9ece6a;
+
+    background-color: transparent;
+    text-color:       @fg0;
+}
+
+/* ── Window ────────────────────────────────────────────────── */
+/*
+ * MODO A — borde propio de Rofi (estático, cyan como default.rasi)
+ * Usa este bloque si NO activas las windowrulev2 de Hyprland.
+ *
+ * MODO B — borde animado vía Hyprland
+ * Cambia  border: 2px  →  border: 0px  y activa las reglas
+ * windowrulev2 documentadas al final del archivo.
+ */
+window {
+    width:            520px;
+    /*
+     * Alpha deliberadamente bajo (80 ≈ 50%) para que el blur de Hyprland
+     * sea visible. Si lo subes por encima de C0 el efecto desaparece.
+     * Ajusta entre 70–A0 según tu wallpaper.
+     */
+    background-color: #1a1b2680;
+    border:           2px;          /* ← cambiar a 0px para MODO B (borde Hyprland) */
+    border-color:     @blue2;
+    border-radius:    16px;
+    padding:          3px;
+    location:         center;
+    anchor:           center;
+}
+
+/* ── Main box ─────────────────────────────────────────────── */
+mainbox {
+    children:         [ inputbar, listview ];
+    padding:          1.2em;
+    /*
+     * Un fill muy sutil sobre el blur — da profundidad sin taparlo.
+     * transparent también funciona si prefieres el blur puro.
+     */
+    background-color: #1a1b2640;
+    border:           1px;
+    border-color:     @blue1;
+    border-radius:    13px;
+    spacing:          0.8em;
+}
+
+/* ── Input bar ────────────────────────────────────────────── */
+/*
+ * Más prominente que en default.rasi — es el elemento principal
+ * de este tema. Padding extra y borde más visible.
+ */
+inputbar {
+    children:         [ prompt, entry ];
+    border-radius:    10px;
+    background-color: #24283bAA;
+    border:           1px;
+    border-color:     @blue1;       /* más brillante que en default (@blue0) */
+    padding:          0.25em 0;
+}
+
+prompt {
+    padding:          0.55em 0.8em;
+    background-color: transparent;
+    text-color:       @blue2;       /* cyan — distingue el icono del texto */
+    vertical-align:   0.5;
+    font:             "JetBrainsMono Nerd Font Bold 13";
+}
+
+entry {
+    blink:             true;        /* cursor parpadeante — más natural en search */
+    padding:           0 1.5% 0 0;
+    placeholder:       "Buscar aplicación...";
+    placeholder-color: @fg2;
+    background-color:  transparent;
+    text-color:        @fg0;
+    vertical-align:    0.5;
+}
+
+/* ── List view — una columna, 8 líneas ────────────────────── */
+listview {
+    lines:            8;
+    columns:          1;
+    cycle:            false;
+    spacing:          0.25em;
+    background-color: transparent;
+    scrollbar:        false;
+    border:           0px;
+    fixed-height:     false;
+}
+
+/* ── Elements — fila horizontal con icono + texto ─────────── */
+element {
+    orientation:      horizontal;
+    padding:          0.5em 0.8em;
+    border-radius:    8px;
+    background-color: transparent;
+    cursor:           pointer;
+    text-color:       @fg1;
+    border:           1px;
+    border-color:     transparent;
+    spacing:          0.7em;
+}
+
+element selected {
+    background-color: @blue0;
+    border:           1px;
+    border-color:     @blue1;
+    border-radius:    8px;
+    text-color:       #ffffff;
+}
+
+element-icon {
+    size:             24px;         /* iconos más pequeños — lista compacta */
+    vertical-align:   0.5;
+    background-color: transparent;
+    cursor:           pointer;
+}
+
+element-text {
+    horizontal-align: 0;           /* alineado a la izquierda en lista */
+    vertical-align:   0.5;
+    background-color: transparent;
+    text-color:       inherit;
+    cursor:           pointer;
+}
+
+/* ── Cursor helpers ───────────────────────────────────────── */
+listview, element { cursor: pointer; }
+entry              { cursor: text;    }
+
+
+/*
+ * ══════════════════════════════════════════════════════════════
+ *  REGLAS HYPRLAND  —  blur + borde animado
+ *  Agrega este bloque en hyprland.conf (windowrule, sin "v2")
+ * ══════════════════════════════════════════════════════════════
+ *
+ * ── 1. BLUR ───────────────────────────────────────────────────
+ *
+ * Hyprland aplica blur globalmente a todas las ventanas cuando
+ * decoration { blur { enabled = true } } está activo. Para Rofi
+ * basta con asegurar que no esté excluido y que el alpha del
+ * fondo sea bajo (ya corregido arriba en este archivo).
+ *
+ * Si el blur AÚN no aparece, Rofi puede estar abriendo como
+ * layer surface en lugar de ventana normal. Prueba en orden:
+ *
+ * CASO A — Rofi abre como ventana normal (más común):
+ *
+ *   windowrule = float,      class:^(rofi)$
+ *   windowrule = noanim,     class:^(rofi)$   # opcional: skip entrada
+ *   # noblur NO debe estar — si lo tienes de antes, elimínalo
+ *
+ * CASO B — Rofi abre como layer surface (verifica con:
+ *           hyprctl layers | grep -i rofi):
+ *
+ *   layerrule = blur,        rofi
+ *   layerrule = ignorezero,  rofi   # ignora píxeles alpha=0
+ *
+ * Verifica cuál aplica ejecutando después de abrir Rofi:
+ *   hyprctl clients | grep -A3 rofi    → aparece → Caso A
+ *   hyprctl layers  | grep -i rofi     → aparece → Caso B
+ *
+ *
+ * ── 2. BORDE ANIMADO (MODO B — opcional) ─────────────────────
+ *
+ * Si quieres que Hyprland dibuje el borde giratorio sobre Rofi:
+ *
+ * PASO 1 — En este archivo:
+ *   Cambia  border: 2px  en `window`  →  border: 0px
+ *
+ * PASO 2 — En hyprland.conf:
+ *
+ *   # Borde simple cyan ↔ azul
+ *   windowrule = float,            class:^(rofi)$
+ *   windowrule = bordersize 2,     class:^(rofi)$
+ *   windowrule = bordercolor rgb(2ac3de) rgb(7aa2f7) 45deg, class:^(rofi)$
+ *
+ *   # O con tres colores (cyan → azul → índigo), más rico visualmente:
+ *   windowrule = bordercolor rgb(2ac3de) rgb(7aa2f7) rgb(3d59a1) 45deg, class:^(rofi)$
+ *
+ * PASO 3 — Las animaciones de tu config ya lo cubren, no hay
+ *   nada más que agregar:
+ *     animation = border,      1, 5,  smooth
+ *     animation = borderangle, 1, 50, linear, loop
+ *
+ *
+ * ── NOTA SINTAXIS ─────────────────────────────────────────────
+ *
+ * Hyprland ≥ 0.41 deprecó `windowrulev2`. La sintaxis correcta
+ * es simplemente `windowrule` con los mismos matchers:
+ *   windowrule = <rule>, class:^(rofi)$
+ *
+ * Verifica la clase exacta con:
+ *   hyprctl clients | grep -A5 rofi
+ *
+ * ══════════════════════════════════════════════════════════════
+ */
